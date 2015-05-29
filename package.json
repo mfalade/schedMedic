@@ -1,0 +1,30 @@
+{
+  "name": "schedMedic",
+  "version": "1.0.0",
+  "description": "This app allows easy scheduling of appointments between a doctor and a patient",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4",
+    "gulp": "^3.8.11",
+    "gulp-jade": "^1.0.1",
+    "json-web-token": "^1.5.3",
+    "method-override": "^2.3.3",
+    "mongoose": "^4.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andela-mfalade/schedMedic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-mfalade/schedMedic/issues"
+  },
+  "homepage": "https://github.com/andela-mfalade/schedMedic"
+}
