@@ -8,16 +8,20 @@ var SignupController = require('./controllers/user.signup.controller');
 module.exports = function (app, express) {
   var apiRouterV1 = express.Router();
   apiRouterV1.use(function(req, res, next) {
-    next();
-    return;
+    AuthController.middleware(req, res, next);
   });
 
-  apiRouterV1.route('/users/signup')
-  .post(function(req, res) {
-    SignupController.sendConfirmationMail(req, res);
-  })
+  apiRouterV1.route('/users/verify/:q')
+    .get(function(req, res) {
+      AuthController.verifyLink(req, res);
+    });
 
-  apiRouterV1.route('/user/authenticate')
+  apiRouterV1.route('/users/signup')
+    .post(function(req, res) {
+      SignupController.addnewUser(req, res);
+    });
+
+  apiRouterV1.route('/users/authenticate')
     .post(function(req, res) {
       AuthController.authenticateUser(req, res);
     });
