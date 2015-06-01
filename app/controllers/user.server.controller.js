@@ -29,6 +29,7 @@ module.exports = {
         if(req.body.email) user.email         = req.body.email;
         if(req.body.password) user.password   = req.body.password;
         if(req.body.role) user.role           = req.body.role;
+        if(req.body.verified) user.verified   = req.body.verified;
 
         user.save(function(err, doc) {
           if(err)

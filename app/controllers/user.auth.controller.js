@@ -58,7 +58,6 @@ var AuthController = {};
     }
   };
 
-
   AuthController.verifyLink = function(req, res) {
     var userUniqueId = req.query.code;
     var username  = req.query.username;
@@ -68,13 +67,19 @@ var AuthController = {};
       if(err)
         return res.json({ error: { message: "An error occured", code: 9000 } });
       if(!user)
-        return res.json({ error: { message: "user not found", code: 9020 } });
+        return res.json({ error: { message: "User not found", code: 9020 } });
       else if(user)
         if (user.uniqueId == userUniqueId) {
-          return res.json({ message: 'Validation Successful', code: 2000 });
+          user.verified = true;
+          user.save(function(err, doc) {
+            if(err)
+              return res.json({ error: { message: "An unidentified error occured.", code: 9000 } });
+            else
+              return res.json({ message: 'Validation Successful', code: 2000 });;
+          });
         }
         else{
-          return { error: { message: "Invalid user", code: 911 } };
+          return { error: { message: "Validation failed", code: 911 } };
         }
     });
   };
