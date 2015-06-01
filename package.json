@@ -11,8 +11,11 @@
     "gulp-jade": "^1.0.1",
     "json-web-token": "^1.5.3",
     "jsonwebtoken": "^5.0.1",
+    "mandrill-api": "^1.0.45",
     "method-override": "^2.3.3",
-    "mongoose": "^4.0.3"
+    "mongoose": "^4.0.3",
+    "sendgrid": "^1.8.0",
+    "uniqid": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
