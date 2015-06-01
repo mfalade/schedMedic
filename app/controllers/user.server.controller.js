@@ -17,26 +17,6 @@ module.exports = {
     });
   },
 
-  addUser: function (req, res) {
-    var user       = new User();
-    user.firstname = req.body.firstname;
-    user.lastname  = req.body.lastname;
-    user.username  = req.body.username;
-    user.email     = req.body.email; 
-    user.password  = req.body.password;
-    user.role      = req.body.role;
-    user.save(function(err){
-      if (err) {
-        if (err.code === 11000)
-          return res.json({ error: { message: "User already exists.", code: 9010 } });
-        else 
-          return res.json({ error: { message: "An unidentified error occured", code: 9000 } });
-      }
-      else
-        res.json("User successfully added");
-    });
-  },
-
   editUser: function (req, res) {
     var user_id = req.params.id;
     User.findById(user_id, function (err, user) {
