@@ -1,0 +1,19 @@
+div.row
+  div.container
+    form.col.s12
+      br 
+      div.card-panel.authform
+        div.row
+          h4.center-align Login to your account.
+          hr
+          br
+          div.input-field.col.s12
+            input(id="username", type="text", class="validate")
+            label(for="username") Username/ Email
+          div.input-field.col.s12
+            input(id="password", type="password", class="validate")
+            label(for="password") Password
+
+          button(class="btn waves-effect center-align") Login
+            i.mdi-content-send.right
+          p {{newname}}

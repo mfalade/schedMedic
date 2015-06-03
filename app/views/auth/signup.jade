@@ -1,0 +1,30 @@
+div.row
+  div.container
+      form.col.s12
+        br
+        div.card-panel.authform
+          div.row
+            h4.center-align Signup for SchedMedic
+            hr
+            br
+            div.input-field.col.s6
+              input(id="first_name", type="text", class="validate")
+              label(for="first_name") First Name
+            div.input-field.col.s6
+              input(id="last_name", type="text", class="validate")
+              label(for="last_name") Last Name
+            div.input-field.col.s12
+              input(id="username", type="text", class="validate")
+              label(for="username") Username
+            div.input-field.col.s12
+              input(id="email", type="email", class="validate")
+              label(for="email") Email
+            div.input-field.col.s12
+              input(id="password", type="password", class="validate")
+              label(for="password") Password
+            div.input-field.col.s12
+              input(id="confirmPassword", type="password", class="validate")
+              label(for="confirmPassword") Confirm Password
+
+            button(class="btn waves-effect center-align") Submit
+              i.mdi-content-send.right

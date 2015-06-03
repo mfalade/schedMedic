@@ -1,0 +1,49 @@
+body {
+  background: url('../images/bg.jpg') no-repeat;
+}
+
+.sideMArgin {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.sideMArginLeft {
+  margin-left: 10%;
+}
+
+.sideMArginRight {
+  margin-right: 10%;
+}
+
+.marginTopMd {
+  margin-top: 10%;
+}
+
+.marginTopLg {
+  margin-top: 20%;
+}
+
+nav {
+  background: #272532;
+}
+
+.authform {
+  background: rgb(239, 235, 236);
+}
+
+.introText {
+  color: #cc9673;
+}
+
+
+
+/*
+  Color scheme 
+  #272532  - Dark dark 
+  rgba(239, 235, 236)  - Whiteish 
+  #625e65  - metalic color 
+  #9f9896  - Greyish 
+  #926d66  - Brownish 
+  #D0bFad  - Creamish 
+  #cc9673  - Orangish 
+*/

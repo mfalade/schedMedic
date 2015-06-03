@@ -1,0 +1,28 @@
+doctype html
+html(lang="en", ng-app="App")
+  head
+    title SchedMedic
+    link(rel="stylesheet", type="text/css", href="../../lib/materialize/dist/css/materialize.css")
+    link(rel="stylesheet", type="style/css", href="../../modules/css/main.css")
+
+  body
+    div
+      nav
+        div.nav-wrapper.sideMArgin
+          a(href="#/", class="brand-logo") SchedMedic
+          ul(class="right hide-on-med-and-down")
+            li 
+              a(ui-sref="signup") Sign up
+            li
+              a(ui-sref="login") Login
+
+    div(ui-view)
+
+    script(src="../../lib/angular/angular.js")
+    script(src="../../lib/ui-router/release/angular-ui-router.js")
+    script(src="../../lib/jquery/dist/jquery.js")
+    script(src="../../lib/materialize/dist/js/materialize.js")
+    script(src="../../modules/controllers/app.controller.js")
+    script(src="../../modules/controllers/auth.controller.js")
+    script(src="../../modules/controllers/main.controller.js")
+    script(src="../../modules/js/appRoutes.js")
