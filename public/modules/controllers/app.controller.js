@@ -1,1 +1,1 @@
-angular.module('App', ['appRouter', 'authModule', 'mainModule']);
+angular.module('App', ['appRouter', 'authModule', 'mainModule', 'patientModule', 'doctorModule', 'authtokenModule', 'adminModule']);

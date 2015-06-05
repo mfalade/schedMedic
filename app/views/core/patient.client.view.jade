@@ -1,0 +1,13 @@
+div.userPage
+  div.sideMArgin
+    div.paddingTopMd
+      div.row.listofDocs
+        div(class="col s3", ng-repeat="doctor in doctors")
+          div.card.blue-grey.darken-1
+            div.card-content.white-text
+              span.card-title
+              img(src="{{doctor.avatarUrl}}")      
+            div.card-action.doctorProfile
+              h5 {{doctor.firstname + ' ' + doctor.lastname}}
+              p {{doctor.specialization}}
+              a(href="", ng-click="bookAppointment(doctor._id)") Book an appointment

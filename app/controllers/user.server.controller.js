@@ -10,6 +10,12 @@ module.exports = {
   },
   getUser: function (req, res) {
     var user_id = req.params.id;
+
+    if(user_id == 'me')
+    {
+      user_id = req.decoded.user_id;
+    }
+    
     User.findById(user_id, function(err, doc){
       if(err)
         return res.json({ error: { message: "An unidentified error occured", code: 9000 } });

@@ -3,28 +3,34 @@ div.row
       form.col.s12
         br
         div.card-panel.authform
-          div.row
+          div(class="row", ng-if="!verificationMailSent")
             h4.center-align Signup for SchedMedic
-            hr
-            br
+            div.divider
+            div(ng-if="userExists")
+              p.errMsg.center-align A user with this username already exists
             div.input-field.col.s6
-              input(id="first_name", type="text", class="validate")
+              input(id="first_name", type="text", class="validate", ng-model="newUser.firstname")
               label(for="first_name") First Name
             div.input-field.col.s6
-              input(id="last_name", type="text", class="validate")
+              input(id="last_name", type="text", class="validate", ng-model="newUser.lastname")
               label(for="last_name") Last Name
             div.input-field.col.s12
-              input(id="username", type="text", class="validate")
+              input(id="username", type="text", class="validate", ng-model="newUser.username")
               label(for="username") Username
             div.input-field.col.s12
-              input(id="email", type="email", class="validate")
+              input(id="email", type="email", class="validate", ng-model="newUser.email")
               label(for="email") Email
             div.input-field.col.s12
-              input(id="password", type="password", class="validate")
+              input(id="password", type="password", class="validate", ng-model="newUser.password")
               label(for="password") Password
             div.input-field.col.s12
-              input(id="confirmPassword", type="password", class="validate")
+              input(id="confirmPassword", type="password", class="validate", ng-model="newUser.passwordSecond")
               label(for="confirmPassword") Confirm Password
+              br
+            div.center-align
+              button(class="btn-large waves-effect center-align", ng-click="signUpUser(newUser)") Submit
+                i.mdi-content-send.right
 
-            button(class="btn waves-effect center-align") Submit
-              i.mdi-content-send.right
+          div(ng-if="verificationMailSent", class="center-align")
+            h5 A verification email has been sent to {{newUser.email}}.
+            p Check your email and follow the link to finish creating your SchedMedic account.  
