@@ -6,5 +6,6 @@ angular.module('App', ['appRouter',
   'authtokenModule', 
   'adminModule', 
   'scheduleModule',
-  'userHomeModule'
+  'userHomeModule',
+  'editModule'
 ]);

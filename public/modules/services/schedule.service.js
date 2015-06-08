@@ -21,6 +21,16 @@ angular.module('scheduleServiceModule', [])
           }); 
       },
 
+      deleteSchedule: function(param, cb) {
+        $http.delete(options.API_URL + '/schedules/' + param)
+          .success(function(doc) {
+            cb(doc);
+          })
+          .error(function(err) {
+            cb(err);
+          });
+      },
+
       getSchedules: function(cb) {
         $http.get(options.API_URL + '/schedules')
           .success(function(doc) {

@@ -36,7 +36,7 @@ body {
 }
 
 .marginTopLg {
-  margin-top: 20%;
+  margin-top: 30%;
 }
 
 .paddingTopMd {
@@ -51,7 +51,7 @@ nav, .btn-large, .btn {
   background: #272532;
 }
 
-.btn-large:hover, .btn:hover {
+.btn-large:hover, .btn:hover, .btn-large:active, .btn:active, .btn-large:focus, .btn:focus {
   background: #625e65;
 }
 
@@ -156,4 +156,37 @@ textarea.materialize-textarea:focus.valid {
 
 .toastr a {
   color: #fff;
+}
+
+.collection {
+  max-height: 450px;
+  overflow: scroll;
+}
+
+.deleteSchedule {
+  background: rgb(156, 58, 69);
+}
+
+.deleteSchedule:hover, .deleteSchedule:active, .deleteSchedule:focus {
+  background: rgb(198, 52, 68)
+}
+
+.collection .collection-item {
+  background: #F2F8F8;
+}
+
+.collection.with-header .confirmed {
+  background-color: #B7D8B9;
+}
+
+.collection.with-header .pending {
+  background-color: #E7C993;
+}
+
+.preview {
+  color: #2AA7B0;
+}
+
+.deleteApp {
+  color: #AE5A5A;
 }

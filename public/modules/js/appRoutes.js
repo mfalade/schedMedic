@@ -55,6 +55,13 @@ angular.module('appRouter', ['ui.router', 'ngCookies'])
         controller: 'adminCtrl'
       })
 
+      .state('edit', {
+        url: '/edit-appointment',
+        templateUrl: 'modules/views/core/edit.appointment.view.html',
+        isAccess: false,
+        controller: 'editCtrl'
+      })
+
       .state('schedule', {
         url: '/schedule-appointment',
         templateUrl: 'modules/views/core/schedule.appointment.view.html',

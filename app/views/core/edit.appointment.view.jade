@@ -5,14 +5,14 @@ div.userPage
         div(class="col s8", ng-show="!schduleFixed")
           div.card-panel
             div(class="row")
-              h5 Schedule an appointment with {{scheduledDoctor.firstname + '.'}}
+              h5 Modify  your appointment with Dr {{currentAppointment.doc_firstname + '.'}}
               div.divider
               div.paddingTopMd
                 div.input-field
-                  input(id="message", type="text", class="validate", ng-model="schedule.message")
+                  input(id="message", type="text", class="validate", ng-model="currentAppointment.message")
                   label(for="message") Title
                 div.input-field
-                  input(type="text", class="datepicker", id="date", ng-model="schedule.SelectedDay") 
+                  input(type="text", class="datepicker", id="date", ng-model="currentAppointment.SelectedDay") 
                   label(for="date") Select date
                 div.input-field
                   p Start time: {{schedule.startHour + ' : ' + schedule.startMinute + ' : ' + schedule.startTimeOfDay}}
@@ -118,6 +118,6 @@ div.userPage
                   p {{scheduledDoctor.specialization}}
                   p {{scheduledDoctor.email}}
           div.center-align.marginTopLg
-            button(class="btn-large waves-effect deleteSchedule center-align", ng-click="deleteSchedule") Delete this schedule
+            button(class="btn-large waves-effect deleteSchedule center-align", ng-click="deleteSchedule") Cancel this appointment
               i.mdi-action-delete
                    

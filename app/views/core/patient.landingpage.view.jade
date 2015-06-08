@@ -3,24 +3,52 @@ div.userPage
     div.paddingTopMd
       div.row.card-panel
         div.col.s6
-          h5 Confirmed Appointments
-          ul.collection
+          ul.collection.with-header
+            li.collection-header.confirmed 
+              h5 Confirmed Appointments
             li(class="collection-item" ng-repeat="schedule in userSchedules")
-              p.title Dr {{schedule.doc_firstname + ' ' + schedule.doc_lastname}}
-              p
-                i.mdi-action-list
-                  |  {{schedule.SelectedDay}}
-              p {{schedule.startTime + ' to ' + schedule.endTime}}
+              div.row
+                div.col.s10
+                  p
+                    b {{schedule.message}}
+                  p Dr {{schedule.doc_firstname + ' ' + schedule.doc_lastname}}
+                  p
+                    i.mdi-action-list
+                      |  {{schedule.SelectedDay}}
+                  p {{schedule.startTime + ' to ' + schedule.endTime}}
+                div.col.s2
+                  div.btmFix
+                    br
+                    br
+                    br
+                    br
+                    br
+                    i(class="small mdi-action-pageview scheduleCta preview", ng-click="editAppointment(schedule)")
+                    i(class="small mdi-action-delete scheduleCta deleteApp", ng-click="trashAppointment(schedule)")
          
         div.col.s6
-          h5 Pending appointments
-          ul.collection
+          ul.collection.with-header
+            li.collection-header.pending
+              h5 Pending appointments
             li(class="collection-item" ng-repeat="schedule in userSchedules")
-              p.title Dr {{schedule.doc_firstname + ' ' + schedule.doc_lastname}}
-              p
-                i.mdi-action-list
-                  |  {{schedule.SelectedDay}}
-              p {{schedule.startTime + ' to ' + schedule.endTime}}
+              div.row
+                div.col.s10
+                  p
+                    b {{schedule.message}}
+                  p Dr {{schedule.doc_firstname + ' ' + schedule.doc_lastname}}
+                  p
+                    i.mdi-action-list
+                      |  {{schedule.SelectedDay}}
+                  p {{schedule.startTime + ' to ' + schedule.endTime}}
+                div.col.s2
+                  div.btmFix
+                    br
+                    br
+                    br
+                    br
+                    br
+                    i(class="small mdi-action-pageview scheduleCta preview", ng-click="editAppointment(schedule)")
+                    i(class="small mdi-action-delete scheduleCta deleteApp", ng-click="trashAppointment(schedule)")
           div.center-align
             i.mdi-content-send.right
             a(ui-sref="patient") Schedule a new appointment.
