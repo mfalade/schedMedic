@@ -1,8 +1,8 @@
 angular.module('doctorServiceModule', [])
-  .factory('docService', ['$http', function ($http) {
+  .factory('docService', ['$http', 'options',function ($http, options) {
     return {
       getDoctors: function(cb) {
-        $http.get('/api/v1/doctors')
+        $http.get(options.API_URL + '/doctors')
           .success(function(doc) {
             cb(doc);
           })
@@ -12,7 +12,7 @@ angular.module('doctorServiceModule', [])
       },
 
       addDoctor: function (user, cb) {
-        $http.post('/api/v1/doctors', user)
+        $http.post(options.API_URL + '/doctors', user)
           .success(function(doc) {
             cb(doc);
           })

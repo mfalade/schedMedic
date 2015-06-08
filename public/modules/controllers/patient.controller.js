@@ -8,7 +8,8 @@ angular.module('patientModule', ['doctorServiceModule'])
     });
 
     $scope.bookAppointment = function(arg) {
-      $location.path('/book-appointment');
+      $rootScope.bookedDoctor = arg;
+      $location.path('/schedule-appointment');
     };
 
     $scope.getDoctors = function() {

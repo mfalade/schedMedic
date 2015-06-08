@@ -9,42 +9,57 @@ angular.module('appRouter', ['ui.router', 'ngCookies'])
       .state('/', {
         url: '/',
         templateUrl: 'modules/views/core/home.html',
-        controller: 'mainCtrl'
+        isAccess: true,
+        controller: ''
       })
 
       .state('signup', {
         url: '/signup',
         templateUrl: 'modules/views/auth/signup.html',
+        isAccess: true,
         controller: 'authCtrl'
       })
 
       .state('login', {
         url: '/login',
         templateUrl: 'modules/views/auth/login.html',
+        isAccess: true,
         controller: 'authCtrl'
       })
 
-      .state('patient', {
+      .state('home', {
         url: '/patient/home',
+        templateUrl: 'modules/views/core/patient.landingpage.view.html',
+        isAccess: false,
+        controller: 'userHomeCtrl'
+      })
+
+      .state('patient', {
+        url: '/patient/schedule',
         templateUrl: 'modules/views/core/patient.client.view.html',
+        isAccess: false,
         controller: 'patientCtrl'
       })
 
       .state('doctor', {
         url: '/doctor/home',
         templateUrl: 'modules/views/core/doctor.client.view.html',
+        isAccess: true,
         controller: 'doctorCtrl'
       })
 
       .state('admin', {
         url: '/admin',
         templateUrl: 'modules/views/core/admin.client.view.html',
+        isAccess: false,
         controller: 'adminCtrl'
       })
 
-      .state('bookAppointment', {
-        url: '/book-appointment',
-        templateurl: 'modules/views/core/book.appointment.view.html'
+      .state('schedule', {
+        url: '/schedule-appointment',
+        templateUrl: 'modules/views/core/schedule.appointment.view.html',
+        isAccess: false,
+        controller: 'scheduleCtrl'
       });
   }])
   .config(function($httpProvider) {

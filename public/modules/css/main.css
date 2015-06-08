@@ -5,7 +5,8 @@ body {
 }
 
 .userPage {
-  background: #F0F0F0;
+  background: url('../images/bg4.jpg') no-repeat;
+  background-size: cover;
   padding:0;
   margin: 0;
   position: relative;
@@ -129,88 +130,30 @@ textarea.materialize-textarea:focus.valid {
   #cc9673  - Orangish 
 */
 
-
-
-
-
-.calendar {
-  display:block;
-  background:white;
-  width:300px;
-  border:solid 1px #9f9896;
-  margin-bottom:10px;
-/*    @secondary-colour:#2875C7;
-  @spacing:10px;
-  @icon-width:40px;
-  @header-height:40px;*/
+.card-panel h5 {
+  color: #39393C;
 }
 
-.calendar >div.header {
-  float:left;
-  width:100%;
-  background:#2875C7;
-  height:@header-height;
-  color:white;
+.appointment {
+  text-align: center;
 }
 
-        
-.calendar > i {
-  float:left;
-  width:40px;
-  font-size:1.125em;
-  font-weight:bold;
-  position:relative;
-  .border-box;
-  padding:0 10px
-  cursor:pointer;
-}
-        
-       
-        
-.calendar > span { 
-  float:left;
-  width:100%;
-  font-weight:bold;
-  text-transform:uppercase;
-  .border-box;
-  padding-left: 50px;
-  margin-left:9px;
-  text-align:center;
-  padding-right: 40px;
-  color:inherit;
+.appointment img {
+  width: 45%;
 }
 
-.calendar  >div.week {
-  float:left;
-  width:100%;
-  border-top:solid 1px #9f9896;
+.dropdown-content {
+  max-height: 300px;
+  overflow-y: scroll;
+  z-index: 2;
 }
 
-.calendar  >div.week:first-child {
-  border-top:none;
-}
-        
-.calendar >span.day {
-  float:left;
-  width:100%/7;
-  .border-box;
-  border-left:solid 1px @border-colour;
-  font-size:0.75em;
-  text-align:center;
-  .vertical-centre(30px);
-  background:white;
-  cursor:pointer;
-  color:black;
+.toastr {
+  text-align: center;
+  background: #26a69a;
+  border: 1px solid #218C82;
 }
 
-.picker--opened .picker__holder {
-  background: none;
-}
-
-.picker__frame {
-  min-width: 600px;
-}
-
-.picker__holder {
-    /*position: relative;*/
+.toastr a {
+  color: #fff;
 }

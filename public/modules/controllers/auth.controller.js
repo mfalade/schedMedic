@@ -25,8 +25,6 @@ angular.module('authModule', ['authServiceModule', 'authtokenModule'])
       $scope.invalidPassword = false;
       Auth.login(user, function(doc) {
         if(doc.token) {
-          $scope.getUser();
-          $rootScope.userIsLoggedIn = true;
           $location.path('/patient/home');
         }
         else {
@@ -37,13 +35,6 @@ angular.module('authModule', ['authServiceModule', 'authtokenModule'])
         }
       });
       //Auth.login(user);
-    };
-
-    $scope.getUser = function() {
-      Auth.getUser(function(doc) {
-        $rootScope.currentUser = doc;
-        return doc;
-      });
     };
 
   });

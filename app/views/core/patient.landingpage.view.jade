@@ -1,0 +1,26 @@
+div.userPage
+  div.sideMArgin
+    div.paddingTopMd
+      div.row.card-panel
+        div.col.s6
+          h5 Confirmed Appointments
+          ul.collection
+            li(class="collection-item" ng-repeat="schedule in userSchedules")
+              p.title Dr {{schedule.doc_firstname + ' ' + schedule.doc_lastname}}
+              p
+                i.mdi-action-list
+                  |  {{schedule.SelectedDay}}
+              p {{schedule.startTime + ' to ' + schedule.endTime}}
+         
+        div.col.s6
+          h5 Pending appointments
+          ul.collection
+            li(class="collection-item" ng-repeat="schedule in userSchedules")
+              p.title Dr {{schedule.doc_firstname + ' ' + schedule.doc_lastname}}
+              p
+                i.mdi-action-list
+                  |  {{schedule.SelectedDay}}
+              p {{schedule.startTime + ' to ' + schedule.endTime}}
+          div.center-align
+            i.mdi-content-send.right
+            a(ui-sref="patient") Schedule a new appointment.

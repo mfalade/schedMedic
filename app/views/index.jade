@@ -4,11 +4,12 @@ html(lang="en", ng-app="App")
     title SchedMedic
     link(rel="stylesheet", type="text/css", href="../../lib/materialize/dist/css/materialize.css")
     link(rel="stylesheet", type="style/css", href="../../modules/css/main.css")
+    link(rel="stylesheet", type="style/css", href="../../modules/css/animate.css")
 
   body
     div
       nav
-        div.nav-wrapper.sideMArgin
+        div(class="nav-wrapper sideMArgin", ng-controller="mainCtrl as headerCtrl")
           a(href="#/", class="brand-logo") SchedMedic
           ul(class="right hide-on-med-and-down", ng-if="!userIsLoggedIn")
             li 
@@ -20,7 +21,9 @@ html(lang="en", ng-app="App")
             li 
               a(href="") Welcome {{currentUser.username}}
             li 
-              a(ui-sref="patient") Home
+              a(ui-sref="home") Home
+            li 
+              a(ui-sref="patient") Schedule Appointment
             li
               a(href="", ng-click="logout()") Logout
 
@@ -38,7 +41,10 @@ html(lang="en", ng-app="App")
     script(src="../../modules/controllers/patient.controller.js")
     script(src="../../modules/controllers/doctor.controller.js")
     script(src="../../modules/controllers/admin.controller.js")
+    script(src="../../modules/controllers/schedule.controller.js")
+    script(src="../../modules/controllers/userHome.controller.js")
     script(src="../../modules/services/auth.service.js")
     script(src="../../modules/services/authtoken.service.js")
     script(src="../../modules/services/doctors.service.js")
+    script(src="../../modules/services/schedule.service.js")
     script(src="../../modules/js/appRoutes.js")
