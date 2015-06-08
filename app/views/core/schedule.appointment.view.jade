@@ -97,9 +97,6 @@ div.userPage
                             option(value="" disabled selected) AM/PM
                             option(value="AM") AM
                             option(value="PM") PM
-                  div.center-align
-                    button(class="btn-large waves-effect center-align", ng-click="scheduleThis(schedule)") Submit
-                      i.mdi-content-send.right
         div(class="col s8", ng-if="schduleFixed")
           div.card-panel.toastr
             div(class="row fadeInDown", ng-if="schduleFixed")      
@@ -117,7 +114,8 @@ div.userPage
                 div.card-action
                   p {{scheduledDoctor.specialization}}
                   p {{scheduledDoctor.email}}
-          div.center-align.marginTopLg
-            button(class="btn-large waves-effect deleteSchedule center-align", ng-click="deleteSchedule") Delete this schedule
-              i.mdi-action-delete
+
+          div.center-align
+            button(class="btn-large waves-effect center-align submitSchedule", ng-click="scheduleThis(schedule)") Schedule Appointment
+              i.mdi-content-send.right
                    

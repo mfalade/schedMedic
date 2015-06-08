@@ -4,6 +4,10 @@ body {
   height: 700px;
 }
 
+html {
+  background: #000;
+}
+
 .userPage {
   background: url('../images/bg4.jpg') no-repeat;
   background-size: cover;
@@ -134,6 +138,11 @@ textarea.materialize-textarea:focus.valid {
   color: #39393C;
 }
 
+.card-panel {
+  max-height: 550px;
+  overflow: hidden;
+}
+
 .appointment {
   text-align: center;
 }
@@ -150,8 +159,8 @@ textarea.materialize-textarea:focus.valid {
 
 .toastr {
   text-align: center;
-  background: #26a69a;
-  border: 1px solid #218C82;
+  background: #35945C;
+  border: 1px solid #1D661C;
 }
 
 .toastr a {
@@ -189,4 +198,12 @@ textarea.materialize-textarea:focus.valid {
 
 .deleteApp {
   color: #AE5A5A;
+}
+
+.submitSchedule {
+  background: #054C04;
+}
+
+.submitSchedule:hover, .submitSchedule:active, .submitSchedule:focus {
+  background: #0B6F0A;
 }

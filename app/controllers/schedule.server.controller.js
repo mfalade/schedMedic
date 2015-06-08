@@ -68,7 +68,7 @@ module.exports =  {
           if(err)
             return res.json({ error: { message: "An unidentified error occured.", code: 9000 } });
           else
-            res.json("Schedule details updated.");
+            res.json({ message: "Schedule details updated.", code: 2222 });
         });
     });
   },

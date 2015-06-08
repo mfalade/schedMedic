@@ -21,6 +21,16 @@ angular.module('scheduleServiceModule', [])
           }); 
       },
 
+      updateSchedule: function(schedId, param ,cb) {
+        $http.put(options.API_URL + '/schedules/' + schedId, param)
+          .success(function(doc) {
+            cb(doc);
+          })
+          .error(function(err) {
+            cb(err);
+          })
+      },
+
       deleteSchedule: function(param, cb) {
         $http.delete(options.API_URL + '/schedules/' + param)
           .success(function(doc) {
