@@ -32,9 +32,9 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule'])
     $scope.cancelAppointment = function () {
       $scope.currentAppointment.status = 'cancelled';
       $scope.scheduleCancelled= true;
-      // scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
-      //   console.log(doc);
-      // });
+      scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
+        console.log(doc);
+      });
     };
 
   }]);

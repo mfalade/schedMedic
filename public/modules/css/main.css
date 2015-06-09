@@ -241,3 +241,12 @@ textarea.materialize-textarea:focus.valid {
 .submitSchedule:hover, .submitSchedule:active, .submitSchedule:focus {
   background: #0B6F0A;
 }
+
+.alert {
+  padding: 35px
+}
+
+.alert h6 {
+  font-weight: 400;
+  font-size: 14px;
+}

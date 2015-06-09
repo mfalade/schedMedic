@@ -6,6 +6,10 @@ div.userPage
           ul.collection.with-header
             li.collection-header.confirmed 
               h5 Confirmed Appointments
+
+            div(class="alert", ng-if="confirmedAppointments.length < 1")
+              h6 You have no confirmed appointment
+
             li(class="collection-item" ng-repeat="schedule in confirmedAppointments")
               div.row
                 div.col.s8
@@ -31,6 +35,10 @@ div.userPage
           ul.collection.with-header
             li.collection-header.pending
               h5 Pending appointments
+
+            div(class="alert", ng-if="pendingAppointments.length < 1")
+              h6 You have no pending appointment
+
             li(class="collection-item" ng-repeat="schedule in pendingAppointments")
               div.row
                 div.col.s8
@@ -56,6 +64,10 @@ div.userPage
           ul.collection.with-header
             li.collection-header.cancelled 
               h5 Cancelled Appointments
+
+            div(class="alert", ng-if="cancelledAppointments.length < 1")
+              h6 You have no cancelled appointment
+
             li(class="collection-item" ng-repeat="schedule in cancelledAppointments")
               div.row
                 div.col.s8
