@@ -10,6 +10,12 @@ module.exports = {
   },
   getUser: function (req, res) {
     var user_id = req.params.id;
+
+    if(user_id == 'me')
+    {
+      user_id = req.decoded.user_id;
+    }
+    
     User.findById(user_id, function(err, doc){
       if(err)
         return res.json({ error: { message: "An unidentified error occured", code: 9000 } });
@@ -28,7 +34,6 @@ module.exports = {
         if(req.body.username) user.username   = req.body.username;
         if(req.body.email) user.email         = req.body.email;
         if(req.body.password) user.password   = req.body.password;
-        if(req.body.role) user.role           = req.body.role;
         if(req.body.verified) user.verified   = req.body.verified;
 
         user.save(function(err, doc) {

@@ -1,0 +1,94 @@
+div.userPage
+  div.sideMArgin
+    div.paddingTopMd
+      div.row.card-panel
+        div.col.s4
+          ul.collection.with-header
+            li.collection-header.confirmed 
+              h5 Confirmed Appointments
+
+            div(class="alert", ng-if="confirmedAppointments.length < 1")
+              h6 You have no confirmed appointment
+
+            li(class="collection-item" ng-repeat="schedule in confirmedAppointments")
+              div.row
+                div.col.s8
+                  p
+                    b {{schedule.message}}
+                  p Dr {{schedule.doc_firstname + ' ' + schedule.doc_lastname}}
+                  p
+                    i.mdi-action-list
+                      |  {{schedule.SelectedDay}}
+                  p {{schedule.startTime + ' to ' + schedule.endTime}}
+                div.col.s4
+                  div.btmFix
+                    br
+                    br
+                    br
+                    br
+                    br
+                    i(class="small mdi-action-pageview scheduleCta preview", ng-click="editAppointment(schedule)")
+                    i(class="small mdi-action-delete scheduleCta deleteApp", ng-click="trashAppointment(schedule)")
+
+
+        div.col.s4
+          ul.collection.with-header
+            li.collection-header.pending
+              h5 Pending appointments
+
+            div(class="alert", ng-if="pendingAppointments.length < 1")
+              h6 You have no pending appointment
+
+            li(class="collection-item" ng-repeat="schedule in pendingAppointments")
+              div.row
+                div.col.s8
+                  p
+                    b {{schedule.message}}
+                  p Dr {{schedule.doc_firstname + ' ' + schedule.doc_lastname}}
+                  p
+                    i.mdi-action-list
+                      |  {{schedule.SelectedDay}}
+                  p {{schedule.startTime + ' to ' + schedule.endTime}}
+                div.col.s4
+                  div.btmFix
+                    br
+                    br
+                    br
+                    br
+                    br
+                    i(class="small mdi-action-pageview scheduleCta preview", ng-click="editAppointment(schedule)")
+                    i(class="small mdi-action-delete scheduleCta deleteApp", ng-click="trashAppointment(schedule)")
+
+
+        div.col.s4
+          ul.collection.with-header
+            li.collection-header.cancelled 
+              h5 Cancelled Appointments
+
+            div(class="alert", ng-if="cancelledAppointments.length < 1")
+              h6 You have no cancelled appointment
+
+            li(class="collection-item" ng-repeat="schedule in cancelledAppointments")
+              div.row
+                div.col.s8
+                  p
+                    b {{schedule.message}}
+                  p Dr {{schedule.doc_firstname + ' ' + schedule.doc_lastname}}
+                  p
+                    i.mdi-action-list
+                      |  {{schedule.SelectedDay}}
+                  p {{schedule.startTime + ' to ' + schedule.endTime}}
+                div.col.s4
+                  div.btmFix
+                    br
+                    br
+                    br
+                    br
+                    br
+                    i(class="small mdi-action-pageview scheduleCta preview", ng-click="editAppointment(schedule)")
+                    i(class="small mdi-action-delete scheduleCta deleteApp", ng-click="trashAppointment(schedule)")
+
+         
+          div.center-align
+            i.mdi-content-send.right
+            a(ui-sref="patient") Schedule a new appointment.

@@ -6,7 +6,7 @@ var AuthController = {};
   AuthController.authenticateUser = function (req, res) {
     var username = req.body.username;
     var query = User.findOne({ username: username });
-    query.select("email username password");
+    query.select("_id email username password");
     query.exec(function(err, user) {
       if(err)
         return res.json({ error: { message: "An error occured", code: 9000 } });
@@ -21,7 +21,8 @@ var AuthController = {};
             {
               firstname: user.firstname,
               lastname: user.lastname,
-              username: user.username
+              username: user.username,
+              user_id: user._id
             },
             api_secret_key,
             {
@@ -35,7 +36,7 @@ var AuthController = {};
   };
 
   AuthController.middleware = function(req, res, next) {
-    if(req.url == '/users/signup' || req.url.slice(0, 13) == '/users/verify' || req.url == '/users/authenticate') {
+    if(req.url == '/users/signup' || req.url.slice(0, 13) == '/users/verify' || req.url == '/users/authenticate' || req.url.slice(0, 8) ==  '/doctors') {
       next();
       return;
     }
@@ -71,6 +72,7 @@ var AuthController = {};
       else if(user)
         if (user.uniqueId == userUniqueId) {
           user.verified = true;
+          user.validationUrl = null;
           user.save(function(err, doc) {
             if(err)
               return res.json({ error: { message: "An unidentified error occured.", code: 9000 } });

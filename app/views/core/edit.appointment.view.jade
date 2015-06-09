@@ -1,0 +1,135 @@
+div.userPage
+  div.sideMArgin
+    div.paddingTopMd
+      div.row
+        div(class="col s8", ng-show="!scheduleUpdated && !scheduleCancelled")
+          div.card-panel
+            div(class="row")
+              h5 Modify  your appointment with Dr {{currentAppointment.doc_firstname + '.'}}
+              div.divider
+              div.paddingTopMd
+                div.input-field
+                  input(id="message", type="text", class="validate", ng-model="currentAppointment.message")
+                  label(for="message") Title
+                div.input-field
+                  input(type="text", class="datepicker", id="date", ng-model="currentAppointment.SelectedDay") 
+                  label(for="date") Select date
+                div.input-field
+                  p Start time: {{currentAppointment.startHour + ' : ' + currentAppointment.startMinute + ' : ' + currentAppointment.startTimeOfDay}}
+                  div.row.card-panel
+                    div.col.s4
+                      div.input-field
+                        select(ng-model="currentAppointment.startHour", class="browser-default", convert-to-number)
+                          option(value="" disabled selected) Hour
+                          option(value="1") 01
+                          option(value="2") 02
+                          option(value="3") 03
+                          option(value="4") 04
+                          option(value="5") 05
+                          option(value="6") 06
+                          option(value="7") 07
+                          option(value="8") 08
+                          option(value="9") 09
+                          option(value="10") 10
+                          option(value="11") 11
+                          option(value="12") 12
+                    div.col.s4
+                      div.input-field
+                        select(ng-model="currentAppointment.startMinute", class="browser-default", convert-to-number)
+                          option(value="" disabled selected) Minute
+                          option(value="0") 00
+                          option(value="10") 10
+                          option(value="15") 15
+                          option(value="20") 20
+                          option(value="25") 25
+                          option(value="30") 30
+                          option(value="35") 35
+                          option(value="40") 40
+                          option(value="45") 45
+                          option(value="50") 50
+                          option(value="55") 55
+                    div.col.s4
+                      div.input-field
+                        select(ng-model="currentAppointment.startTimeOfDay", class="browser-default")
+                          option(value="" disabled selected) AM/PM
+                          option(value="AM") AM
+                          option(value="PM") PM
+
+                          //- End time section 
+
+                  div.input-field
+                    p End time: {{currentAppointment.endHour + ' : ' + currentAppointment.endMinute + ' : ' + currentAppointment.endTimeOfDay}}
+                    div.row.card-panel
+                      div.col.s4
+                        div.input-field
+                          select(ng-model="currentAppointment.endHour", class="browser-default", convert-to-number)
+                            option(value="" disabled) Hour
+                            option(value="1") 01
+                            option(value="2") 02
+                            option(value="3") 03
+                            option(value="4") 04
+                            option(value="5") 05
+                            option(value="6") 06
+                            option(value="7") 07
+                            option(value="8") 08
+                            option(value="9") 09
+                            option(value="10") 10
+                            option(value="11") 11
+                            option(value="12") 12
+                      div.col.s4
+                        div.input-field
+                          select(ng-model="currentAppointment.endMinute", class="browser-default", convert-to-number)
+                            option(value="" disabled) Minute
+                            option(value="0") 00
+                            option(value="10") 10
+                            option(value="15") 15
+                            option(value="20") 20
+                            option(value="25") 25
+                            option(value="30") 30
+                            option(value="35") 35
+                            option(value="40") 40
+                            option(value="45") 45
+                            option(value="50") 50
+                            option(value="55") 55
+                      div.col.s4
+                        div.input-field
+                          select(ng-model="currentAppointment.endTimeOfDay", class="browser-default")
+                            option(value="" disabled) AM/PM
+                            option(value="AM") AM
+                            option(value="PM") PM
+                  
+        div(class="col s8", ng-if="scheduleUpdated")
+          div.card-panel.toastr
+            div(class="row fadeInDown", ng-if="scheduleUpdated")      
+              p Your appointment has been successfully updated.
+              p You will receive a notfication when your new appointment gets confirmed.
+              a(ui-sref="home") Back to home page
+
+        div(class="col s8", ng-if="scheduleCancelled")
+          div.card-panel.toastr
+            div(class="row fadeInDown", ng-if="scheduleCancelled")      
+              p Your appointment has been successfully cancelled.
+              p
+                    | You can still view and reschedule this appointment from your 
+                    a(ui-sref='home')
+                      | dashboard or you can 
+                      a(ui-sref='patient') create a new appointment
+
+        div.col.s4
+          div.row
+            div.card-panel.appointment
+              div
+                div.card-content
+                  img(src="{{scheduledDoctor.avatarUrl}}")
+                  p.card-title {{scheduledDoctor.firstname + ' ' + scheduledDoctor.lastname}}
+                div.card-action
+                  p {{scheduledDoctor.specialization}}
+                  p {{scheduledDoctor.email}}
+          div(class="center-align", ng-if="!scheduleUpdated && !scheduleCancelled")
+            button(class="btn-large waves-effect center-align submitSchedule", ng-click="updateChanges()") Save changes
+              i.mdi-content-send.right
+          br
+          div(class="center-align", ng-if="!scheduleCancelled && !scheduleUpdated")
+            button(class="btn-large waves-effect deleteSchedule center-align", ng-click="cancelAppointment()") Cancel this appointment
+              i.mdi-content-clear
+                   

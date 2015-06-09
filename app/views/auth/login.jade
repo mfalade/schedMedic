@@ -1,0 +1,28 @@
+div.row
+  div.container
+    form.col.s12
+      br 
+      div.card-panel.authform
+        div.row
+          h4.center-align Login to your account.
+          div.divider
+          div(ng-if="wrongUsername")
+            p.errMsg.center-align A user with this username does not exist.
+          div(ng-if="invalidPassword")
+            p.errMsg.center-align Incorrect password.
+          div.input-field.col.s12
+            input(id="username", type="text", class="validate", ng-model="user.username")
+            label(for="username") Username/ Email
+          div.input-field.col.s12
+            input(id="password", type="password", class="validate", ng-model="user.password")
+            label(for="password") Password
+            br
+          div.center-align
+            button(class="btn-large waves-effect", ng-click="loginUser(user)") Login
+              i.mdi-content-send.right
+          br
+          p.center-align 
+            | New user? Click 
+            a(ui-sref="signup") here 
+            | to sign up.
+            

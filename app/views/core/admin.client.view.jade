@@ -1,0 +1,33 @@
+div.row
+  div.container
+      form.col.s12
+        br
+        div.card-panel.authform
+          div(class="row", ng-if="!doctorAdded")
+            h4.center-align Add a new doctor
+            div.divider
+            div.input-field.col.s6
+              input(id="first_name", type="text", class="validate", ng-model="newDoctor.firstname")
+              label(for="first_name") First Name
+            div.input-field.col.s6
+              input(id="last_name", type="text", class="validate", ng-model="newDoctor.lastname")
+              label(for="last_name") Last Name
+            div.input-field.col.s12
+              input(id="username", type="email", class="validate", ng-model="newDoctor.email")
+              label(for="username") E-mail
+            div.input-field.col.s12
+              input(id="specialization", type="text", class="validate", ng-model="newDoctor.specialization")
+              label(for="specialization") Specialization
+            div.input-field.col.s12
+              input(id="avatarUrl", type="text", class="validate", ng-model="newDoctor.avatarUrl")
+              label(for="avatarUrl") Avatar Url
+              br
+            div.center-align
+              button(class="btn-large waves-effect center-align", ng-click="addDoctor(newDoctor)") Submit
+                i.mdi-content-send.right
+
+          div(ng-if="doctorAdded", class="center-align")
+            h5 Doctor Successfully added.
+            div.center-align
+            button(class="btn waves-effect center-align", ng-click="addAnotherDoc()") Add a new doctor. 
+              i.mdi-content-send.right
