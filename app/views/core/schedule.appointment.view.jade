@@ -1,0 +1,121 @@
+div.userPage
+  div.sideMArgin
+    div.paddingTopMd
+      div.row
+        div(class="col s8", ng-show="!schduleFixed")
+          div.card-panel
+            div(class="row")
+              h5 Schedule an appointment with Dr {{scheduledDoctor.firstname + '.'}}
+              div.divider
+              div.paddingTopMd
+                div.input-field
+                  input(id="message", type="text", class="validate", ng-model="schedule.message")
+                  label(for="message") Title
+                div.input-field
+                  input(type="text", class="datepicker", id="date", ng-model="schedule.SelectedDay") 
+                  label(for="date") Select date
+                div.input-field
+                  p Start time: {{schedule.startHour + ' : ' + schedule.startMinute + ' : ' + schedule.startTimeOfDay}}
+                  div.row.card-panel
+                    div.col.s4
+                      div.input-field
+                        select(ng-model="schedule.startHour", class="browser-default", convert-to-number)
+                          option(value="" disabled selected) Hour
+                          option(value="01") 01
+                          option(value="02") 02
+                          option(value="03") 03
+                          option(value="04") 04
+                          option(value="05") 05
+                          option(value="06") 06
+                          option(value="07") 07
+                          option(value="08") 08
+                          option(value="09") 09
+                          option(value="10") 10
+                          option(value="11") 11
+                          option(value="12") 12
+                    div.col.s4
+                      div.input-field
+                        select(ng-model="schedule.startMinute", class="browser-default", convert-to-number)
+                          option(value="" disabled selected) Minute
+                          option(value="00") 00
+                          option(value="10") 10
+                          option(value="15") 15
+                          option(value="20") 20
+                          option(value="25") 25
+                          option(value="30") 30
+                          option(value="35") 35
+                          option(value="40") 40
+                          option(value="45") 45
+                          option(value="50") 50
+                          option(value="55") 55
+                    div.col.s4
+                      div.input-field
+                        select(ng-model="schedule.startTimeOfDay", class="browser-default")
+                          option(value="" disabled selected) AM/PM
+                          option(value="AM") AM
+                          option(value="PM") PM
+
+                          //- End time section 
+
+                  div.input-field
+                    p End time: {{schedule.endHour + ' : ' + schedule.endMinute + ' : ' + schedule.endTimeOfDay}}
+                    div.row.card-panel
+                      div.col.s4
+                        div.input-field
+                          select(ng-model="schedule.endHour", class="browser-default", convert-to-number)
+                            option(value="" disabled selected) Hour
+                            option(value="01") 01
+                            option(value="02") 02
+                            option(value="03") 03
+                            option(value="04") 04
+                            option(value="05") 05
+                            option(value="06") 06
+                            option(value="07") 07
+                            option(value="08") 08
+                            option(value="09") 09
+                            option(value="10") 10
+                            option(value="11") 11
+                            option(value="12") 12
+                      div.col.s4
+                        div.input-field
+                          select(ng-model="schedule.endMinute", class="browser-default", convert-to-number)
+                            option(value="" disabled selected) Minute
+                            option(value="00") 00
+                            option(value="10") 10
+                            option(value="15") 15
+                            option(value="20") 20
+                            option(value="25") 25
+                            option(value="30") 30
+                            option(value="35") 35
+                            option(value="40") 40
+                            option(value="45") 45
+                            option(value="50") 50
+                            option(value="55") 55
+                      div.col.s4
+                        div.input-field
+                          select(ng-model="schedule.endTimeOfDay", class="browser-default")
+                            option(value="" disabled selected) AM/PM
+                            option(value="AM") AM
+                            option(value="PM") PM
+        div(class="col s8", ng-if="schduleFixed")
+          div.card-panel.toastr
+            div(class="row fadeInDown", ng-if="schduleFixed")      
+              p Your request has been submitted and a notification has been sent to Dr {{scheduledDoctor.firstname + ' ' + scheduledDoctor.lastname}}.
+              p You will receive a notfication when your schedule gets confirmed.
+              a(ui-sref="home") Go back to your home page
+
+        div.col.s4
+          div.row
+            div.card-panel.appointment
+              div
+                div.card-content
+                  img(src="{{scheduledDoctor.avatarUrl}}")
+                  p.card-title {{scheduledDoctor.firstname + ' ' + scheduledDoctor.lastname}}
+                div.card-action
+                  p {{scheduledDoctor.specialization}}
+                  p {{scheduledDoctor.email}}
+
+          div.center-align
+            button(class="btn-large waves-effect center-align submitSchedule", ng-click="scheduleThis(schedule)") Schedule Appointment
+              i.mdi-content-send.right
+                   

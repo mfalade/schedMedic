@@ -10,5 +10,5 @@ gulp.task('jade', function() {
     .pipe(jade({
       locals: YOUR_LOCALS
     }))
-    .pipe(gulp.dest('./public/views/'))
+    .pipe(gulp.dest('./public/modules/views/'))
 });

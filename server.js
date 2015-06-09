@@ -6,10 +6,10 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose       = require('mongoose');
 
-var db = require('./config/db');
+var db   = require('./config/db');
+var port = process.env.port || 5555;
 mongoose.connect(db.url); 
 
-var port = process.env.port || 5555;
 
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
@@ -17,6 +17,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override')); 
 
 app.use(express.static(__dirname + '/public')); 
+app.get('/', function(req, res) {
+  res.sendfile('public/modules/views/index.html');
+});
 require('./app/routes')(app, express);
 app.listen(port);
 
