@@ -1,6 +1,5 @@
 angular.module('patientModule', ['doctorServiceModule'])
   .controller('patientCtrl', ['$scope', '$rootScope', 'docService', '$location', function($scope, $rootScope, docService, $location) {
-    $scope.day = moment();
     angular.element('.datepicker').trigger('click');
     $('.datepicker').pickadate({
       selectMonths: true, 
