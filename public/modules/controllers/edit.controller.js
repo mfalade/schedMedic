@@ -1,6 +1,7 @@
 angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule'])
   .controller('editCtrl', ['$scope','tempStore', 'scheduleService', function ($scope, tempStore, scheduleService) {
     $scope.scheduleUpdated = false;
+    $scope.scheduleCancelled= false;
     $scope.loadEntries = function () {
       $scope.currentAppointment = tempStore.currentAppointment;
       scheduleService.getDoctor($scope.currentAppointment.doctor_id, function(doc) {
@@ -16,6 +17,7 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule'])
     $scope.loadEntries();
 
     $scope.updateChanges = function() {
+      console.log($scope.currentAppointment);
       $scope.currentAppointment.startTime  = $scope.currentAppointment.startHour + ':' + $scope.currentAppointment.startMinute + ' ' + $scope.currentAppointment.startTimeOfDay;
       $scope.currentAppointment.endTime    = $scope.currentAppointment.endHour + ':' + $scope.currentAppointment.endMinute + ' ' + $scope.currentAppointment.endTimeOfDay;
       scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
@@ -25,6 +27,14 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule'])
         else
           console.log(doc);
       });
-
     };
+
+    $scope.cancelAppointment = function () {
+      $scope.currentAppointment.status = 'cancelled';
+      $scope.scheduleCancelled= true;
+      // scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
+      //   console.log(doc);
+      // });
+    };
+
   }]);

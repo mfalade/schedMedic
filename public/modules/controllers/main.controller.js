@@ -1,11 +1,16 @@
 angular.module('mainModule', ['authtokenModule'])
   .controller('mainCtrl', function($scope, $rootScope, $location, Auth) {
     
+    $scope.showSignup = function() {
+      $location.path('/signup');
+    }
+    
     $scope.getUser = function() {
       Auth.getUser(function(doc) {
         $scope.currentUser = doc;
       });
     };
+
 
     $scope.getUser();
 

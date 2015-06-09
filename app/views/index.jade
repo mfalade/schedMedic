@@ -12,8 +12,6 @@ html(lang="en", ng-app="App")
         div(class="nav-wrapper sideMArgin", ng-controller="mainCtrl as headerCtrl")
           a(href="#/", class="brand-logo") SchedMedic
           ul(class="right hide-on-med-and-down", ng-if="!userIsLoggedIn")
-            li 
-              a(ui-sref="signup") Sign up
             li
               a(ui-sref="login") Login
 

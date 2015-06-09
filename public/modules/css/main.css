@@ -4,6 +4,18 @@ body {
   height: 700px;
 }
 
+h1, h2, h3, h4, h5, h6, nav ul a {
+  font-weight: 100;
+}
+
+nav .brand-logo {
+  font-weight: 200;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
 html {
   background: #000;
 }
@@ -23,8 +35,8 @@ html {
 }
 
 .sideMArgin {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 .sideMArginLeft {
@@ -51,20 +63,36 @@ html {
   padding-top: 10%;
 }
 
-nav, .btn-large, .btn {
+nav {
   background: #272532;
 }
 
+.btn-large, .btn {
+  border: 1px solid #fff;
+  border-radius: 0;
+  background: #272532;
+  transition: all linear .3s;
+}
+
 .btn-large:hover, .btn:hover, .btn-large:active, .btn:active, .btn-large:focus, .btn:focus {
-  background: #625e65;
+  background: #fff;
+  color: #272532;
 }
 
 .authform {
   background: rgb(239, 235, 236);
 }
 
+
 .introText {
-  color: #D0bFad;
+  color: #fff;
+  font-weight: 100;
+}
+
+.introText p {
+  font-size: 21px;
+  font-weight: 100;
+  line-height: 28px;
 }
 
 .errMsg {
@@ -106,12 +134,13 @@ textarea.materialize-textarea:focus.valid {
   height: 245px;
 }
 
+
 .listofDocs .card-content {
   background: #fff;
 }
 
 .listofDocs .card-action {
-  background: #272532;
+  background: #F2F8F8;
 }
 
 .doctorProfile {
@@ -119,7 +148,7 @@ textarea.materialize-textarea:focus.valid {
 }
 
 .doctorProfile h5, .doctorProfile p {
-  color: #E0D9DB;
+  color: #564E7F;
 }
 
 
@@ -159,12 +188,13 @@ textarea.materialize-textarea:focus.valid {
 
 .toastr {
   text-align: center;
-  background: #35945C;
-  border: 1px solid #1D661C;
+  background: #6BC691;
+  color: #fff;
+  border: 1px solid #3CB36E;
 }
 
 .toastr a {
-  color: #fff;
+  color: #272532;
 }
 
 .collection {
@@ -173,11 +203,11 @@ textarea.materialize-textarea:focus.valid {
 }
 
 .deleteSchedule {
-  background: rgb(156, 58, 69);
+  background: rgb(198, 107, 117);
 }
 
 .deleteSchedule:hover, .deleteSchedule:active, .deleteSchedule:focus {
-  background: rgb(198, 52, 68)
+  background: rgb(192, 94, 105);
 }
 
 .collection .collection-item {
@@ -190,6 +220,10 @@ textarea.materialize-textarea:focus.valid {
 
 .collection.with-header .pending {
   background-color: #E7C993;
+}
+
+.collection.with-header .cancelled {
+  background-color: #C16363;
 }
 
 .preview {

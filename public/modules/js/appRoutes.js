@@ -10,7 +10,7 @@ angular.module('appRouter', ['ui.router', 'ngCookies'])
         url: '/',
         templateUrl: 'modules/views/core/home.html',
         isAccess: true,
-        controller: ''
+        controller: 'mainCtrl'
       })
 
       .state('signup', {
