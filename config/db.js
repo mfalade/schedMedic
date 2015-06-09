@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-  url : 'mongodb://localhost/schedMedic'
-}
+  developmentUrl : 'mongodb://localhost/schedMedic',
+  productionUrl  : 'mongodb://mayorace:schedmedicsecretdbpwd@ds031541.mongolab.com:31541/schedmedic'
+};

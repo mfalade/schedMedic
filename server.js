@@ -7,9 +7,16 @@ var methodOverride = require('method-override');
 var mongoose       = require('mongoose');
 
 var db   = require('./config/db');
-var port = process.env.port || 5555;
-mongoose.connect(db.url); 
 
+var env            = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var port           = process.env.port || 5555;
+
+if( env === 'development') {
+  mongoose.connect(db.developmentUrl);
+}
+else {
+  mongoose.connect(db.productionUrl);
+}
 
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
