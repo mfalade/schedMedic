@@ -7,7 +7,7 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose       = require('mongoose');
 var env            = process.env.NODE_ENV || 'development';
-var port           = process.env.port;
+var port           = process.env.PORT || 5555;
 
 if( env === 'development') {
   mongoose.connect(db.developmentUrl);
@@ -34,6 +34,7 @@ app.listen(port, function(err) {
   } else {
     console.log(port + ' is where the magic happens.');
   }
+  
 });
 
 
