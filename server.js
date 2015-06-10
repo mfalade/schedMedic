@@ -2,18 +2,20 @@
 
 var express        = require('express');
 var app            = express();
+var db             = require('./config/db');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose       = require('mongoose');
-var db             = require('./config/db');
-var port           = process.env.port || 5555;
 var env            = process.env.NODE_ENV || 'development';
+var port           = process.env.port || 5555;
 
 if( env === 'development') {
   mongoose.connect(db.developmentUrl);
+  console.log('This is the db url', db.developmentUrl);
 }
 else {
   mongoose.connect(db.productionUrl);
+  console.log('This is the db url', db.productionUrl);
 }
 
 app.use(bodyParser.json());
@@ -28,7 +30,7 @@ app.get('/', function(req, res) {
 require('./app/routes')(app, express);
 app.listen(port);
 
-
 console.log(port + ' is where the magic happens.');
 
 exports = module.exports = app;
+

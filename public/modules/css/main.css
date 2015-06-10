@@ -16,6 +16,10 @@ h1, h2, h3, h4, h5, h6, p {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
+.center-align {
+  text-align: center;
+}
+
 html {
   background: #000;
 }
