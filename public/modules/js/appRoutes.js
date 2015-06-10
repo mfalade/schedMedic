@@ -73,5 +73,5 @@ angular.module('appRouter', ['ui.router', 'ngCookies'])
       $httpProvider.interceptors.push('AuthInterceptor');
   })
   .value('options', {
-    'API_URL' : 'http://localhost:5555/api/v1/'
+    'API_URL' : 'https://schedmedic.herokuapp.com' || 'http://localhost:5555/api/v1/';
   });
