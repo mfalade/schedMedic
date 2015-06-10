@@ -11,11 +11,9 @@ var port           = process.env.PORT || 5555;
 
 if( env === 'development') {
   mongoose.connect(db.developmentUrl);
-  console.log('This is the db url', db.developmentUrl);
 }
 else {
   mongoose.connect(db.productionUrl);
-  console.log('This is the db url', db.productionUrl);
 }
 
 app.use(bodyParser.json());
