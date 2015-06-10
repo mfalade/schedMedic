@@ -5,11 +5,9 @@ var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose       = require('mongoose');
-
-var db   = require('./config/db');
-
-var env            = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var db             = require('./config/db');
 var port           = process.env.port || 5555;
+var env            = process.env.NODE_ENV || 'development';
 
 if( env === 'development') {
   mongoose.connect(db.developmentUrl);
