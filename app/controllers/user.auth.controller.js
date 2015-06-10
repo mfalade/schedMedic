@@ -36,6 +36,10 @@ var AuthController = {};
   };
 
   AuthController.middleware = function(req, res, next) {
+        res.setHeader('Access-Control-Allow-Origin', 'https://schedmedic.herokuapp.com');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        res.setHeader('Access-Control-Allow-Credentials', true);
     if(req.url == '/users/signup' || req.url.slice(0, 13) == '/users/verify' || req.url == '/users/authenticate' || req.url.slice(0, 8) ==  '/doctors') {
       next();
       return;
