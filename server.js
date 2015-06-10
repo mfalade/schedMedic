@@ -7,7 +7,7 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose       = require('mongoose');
 var env            = process.env.NODE_ENV || 'development';
-var port           = process.env.port || 5555;
+var port           = process.env.port;
 
 if( env === 'development') {
   mongoose.connect(db.developmentUrl);
@@ -28,9 +28,14 @@ app.get('/', function(req, res) {
   res.sendfile('public/modules/views/index.html');
 });
 require('./app/routes')(app, express);
-app.listen(port);
+app.listen(port, function(err) {
+  if (err) {
+    console.log('Could not start app: Error Occured', err)
+  } else {
+    console.log(port + ' is where the magic happens.');
+  }
+});
 
-console.log(port + ' is where the magic happens.');
 
 exports = module.exports = app;
 
