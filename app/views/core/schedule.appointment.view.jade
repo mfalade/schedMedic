@@ -115,7 +115,7 @@ div.userPage
                   p {{scheduledDoctor.specialization}}
                   p {{scheduledDoctor.email}}
 
-          div.center-align
+          div(class="center-align", ng-if="!schduleFixed")
             button(class="btn-large waves-effect center-align submitSchedule", ng-click="scheduleThis(schedule)") Schedule Appointment
               i.mdi-content-send.right
                    

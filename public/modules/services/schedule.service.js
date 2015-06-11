@@ -2,7 +2,7 @@ angular.module('scheduleServiceModule', [])
   .factory('scheduleService', ['$http', 'options', function($http, options) {
     return {
       getDoctor: function(param, cb) {
-        $http.get(options.API_URL + '/doctors/' + param)
+        $http.get(options.API_URL + 'doctors/' + param)
           .success(function(doc) {
             cb(doc);
           })
@@ -12,7 +12,7 @@ angular.module('scheduleServiceModule', [])
       },
 
       createSchedule: function(param, cb) {
-        $http.post(options.API_URL + '/schedules', param)
+        $http.post(options.API_URL + 'schedules', param)
           .success(function(doc) {
             cb(doc);
           })
@@ -22,7 +22,7 @@ angular.module('scheduleServiceModule', [])
       },
 
       updateSchedule: function(schedId, param ,cb) {
-        $http.put(options.API_URL + '/schedules/' + schedId, param)
+        $http.put(options.API_URL + 'schedules/' + schedId, param)
           .success(function(doc) {
             cb(doc);
           })
@@ -32,7 +32,7 @@ angular.module('scheduleServiceModule', [])
       },
 
       deleteSchedule: function(param, cb) {
-        $http.delete(options.API_URL + '/schedules/' + param)
+        $http.delete(options.API_URL + 'schedules/' + param)
           .success(function(doc) {
             cb(doc);
           })
@@ -42,7 +42,7 @@ angular.module('scheduleServiceModule', [])
       },
 
       getSchedules: function(cb) {
-        $http.get(options.API_URL + '/schedules')
+        $http.get(options.API_URL + 'schedules')
           .success(function(doc) {
             cb(doc);
           })
@@ -52,7 +52,7 @@ angular.module('scheduleServiceModule', [])
       },
 
       getPatientSchedules: function(param, cb) {
-        $http.get(options.API_URL + '/patient/schedules/' + param)
+        $http.get(options.API_URL + 'patient/schedules/' + param)
           .success(function(doc) {
             cb(doc);
           })

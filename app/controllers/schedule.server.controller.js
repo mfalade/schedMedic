@@ -33,11 +33,13 @@ module.exports =  {
   saveSchedule: function(req, res) {
     var schedule            = new Schedule();
     schedule.doctor_id      =   req.body.doctor_id;
+    schedule.doctorEmail    =   req.body.doctorEmail;
     schedule.doc_firstname  =   req.body.doc_firstname;
     schedule.doc_lastname   =   req.body.doc_lastname;
     schedule.patient_id     =   req.body.patient_id;
-    schedule.message        =   req.body.message;     
-    schedule.SelectedDay    =   req.body.SelectedDay; 
+    schedule.patientName    =   req.body.patientName;
+    schedule.message        =   req.body.message;   
+    schedule.SelectedDay    =   req.body.SelectedDay;
     schedule.startTime      =   req.body.startTime;
     schedule.endTime        =   req.body.endTime;
 
@@ -46,9 +48,8 @@ module.exports =  {
         return res.json({ error: { message: "An unidentified error occured", code: 9000 } });
       }
       else {
-
+        email.sendScheduleMail(res, req.body);
         res.json({ success: true, code: 2000, message: 'Schedule successfully added' });
-
       }
     });
   },
