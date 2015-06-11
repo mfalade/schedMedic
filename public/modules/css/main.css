@@ -325,6 +325,6 @@ textarea.materialize-textarea:focus.valid {
 }
 
 .customSuccessAlert {
-  background: rgb(113, 198, 157);
+  background: #6BC691;
   border: 1px solid #529072;
 }

@@ -36,11 +36,16 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule'])
     };
 
     $scope.cancelAppointment = function () {
-      $scope.currentAppointment.status = 'cancelled';
-      $scope.scheduleCancelled= true;
-      scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
-        console.log(doc);
-      });
+      var cancelForReal = confirm('Are you sure you want to cancel this appointment?')
+      if(cancelForReal) {
+        $scope.currentAppointment.status = 'cancelled';
+        $scope.scheduleCancelled= true;
+        scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
+          console.log(doc);
+        });
+      }
+      else 
+        return false;
     };
 
   }]);

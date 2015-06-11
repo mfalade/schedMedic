@@ -66,7 +66,6 @@ module.exports =  {
         if(req.body.endTime) schedule.endTime             = req.body.endTime;
         if(req.body.status) schedule.status               = req.body.status;
 
-
         schedule.save(function(err, doc) {
           if(err)
             return res.json({ error: { message: "An unidentified error occured.", code: 9000, err: err } });
