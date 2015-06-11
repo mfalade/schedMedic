@@ -1,11 +1,14 @@
 div.userPage
+  div(class="customErrorAlert", ng-if="errorUpdatingSchedule")
+    p An error occured updating this schedule.
   div.sideMArgin
     div.paddingTopMd
       div.row
         div(class="col s8", ng-show="!scheduleUpdated && !scheduleCancelled")
           div.card-panel
-            div(class="row")
+            div.colorfulHeader
               h5 Modify  your appointment with Dr {{currentAppointment.doc_firstname + '.'}}
+            div(class="row")
               div.divider
               div
                 div.input-field

@@ -1,4 +1,8 @@
 div.row
+  div(class="customErrorAlert", ng-if="wrongUserInfo")
+    p(ng-bind="errMsg")
+  div(class="customSuccessAlert", ng-if="loginSuccessful")
+    p Login successful.
   div.container
     form.col.s12
       br 
@@ -6,10 +10,6 @@ div.row
         div.row
           h4.center-align Login to your account.
           div.divider
-          div(ng-if="wrongUsername")
-            p.errMsg.center-align A user with this username does not exist.
-          div(ng-if="invalidPassword")
-            p.errMsg.center-align Incorrect password.
           div.input-field.col.s12
             input(id="username", type="text", class="validate", ng-model="user.username")
             label(for="username") Username/ Email

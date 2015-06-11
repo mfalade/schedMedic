@@ -1,10 +1,9 @@
 angular.module('authModule', ['authServiceModule', 'authtokenModule'])
-  .controller('authCtrl', function($scope, $rootScope, authService, Auth, $location) {
+  .controller('authCtrl', function($scope, $rootScope, authService, Auth, $location, $timeout) {
     $scope.newUser = {};
     $scope.user = {};
     $scope.userExists = false;
-    $scope.wrongUsername = false;
-    $scope.invalidPassword = false;
+    $scope.wrongUserInfo = false;
     $scope.verificationMailSent = false;
 
     $scope.signUpUser = function (newUser) {
@@ -21,17 +20,24 @@ angular.module('authModule', ['authServiceModule', 'authtokenModule'])
     };
 
     $scope.loginUser = function(user) {
-      $scope.wrongUsername = false;
-      $scope.invalidPassword = false;
+      $scope.wrongUserInfo = false;
       Auth.login(user, function(doc) {
         if(doc.token) {
-          $location.path('/patient/home');
+          $scope.loginSuccessful = true;
+          $timeout(function() {
+            $scope.loginSuccessful = false;
+            $location.path('/patient/home');
+          }, 1000);
         }
         else {
+          $scope.wrongUserInfo = true;
+          $timeout(function() {
+            $scope.wrongUserInfo = false;
+          }, 3000);
           if(doc.error.code === 9020)
-            $scope.wrongUsername = true;
+            $scope.errMsg = 'A user with this username does not exist.';
           if(doc.error.code === 9090)
-            $scope.invalidPassword = true;
+            $scope.errMsg = 'Incorrect password.';
         }
       });
       //Auth.login(user);

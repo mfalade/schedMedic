@@ -1,6 +1,5 @@
 angular.module('mainModule', ['authtokenModule'])
-  .controller('mainCtrl', function($scope, $rootScope, $location, Auth) {
-    
+  .controller('mainCtrl', function($scope, $rootScope, $location, Auth, $timeout) {
     $scope.showSignup = function() {
       $location.path('/signup');
     }
@@ -10,26 +9,21 @@ angular.module('mainModule', ['authtokenModule'])
         $scope.currentUser = doc;
       });
     };
-
-
     $scope.getUser();
-
     $scope.userIsLoggedIn = Auth.isLoggedIn();
 
     $scope.logout = function() {
-      Auth.logout()
+      Auth.logout();
       $scope.userIsLoggedIn = false;
-      $location.path('/');
+      $timeout(function() {
+        $location.path('/');
+      }, 1000);
     };
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-
       $scope.userIsLoggedIn = Auth.isLoggedIn();
-
-     if (!$scope.userIsLoggedIn && !toState.isAccess) 
-    {
+      if (!$scope.userIsLoggedIn && !toState.isAccess) {
         $location.path('/login');
-    }
-
+      }
     });
   });

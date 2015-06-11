@@ -14,7 +14,7 @@ angular.module('scheduleModule', ['scheduleServiceModule', 'authtokenModule'])
       $scope.schedule.doctorEmail    = $scope.scheduledDoctor.email;
       $scope.schedule.doc_firstname  = $scope.scheduledDoctor.firstname;
       $scope.schedule.doc_lastname   = $scope.scheduledDoctor.lastname;
-      $scope.schedule.patient_id              = $scope.currentUser._id;
+      $scope.schedule.patient_id     = $scope.currentUser._id;
       $scope.schedule.patientName    = $scope.currentUser.firstname + ' ' + $scope.currentUser.lastname;
       $scope.schedule.startTime      = $scope.schedule.startHour + ':' + $scope.schedule.startMinute + ' ' + $scope.schedule.startTimeOfDay;
       $scope.schedule.endTime        = $scope.schedule.endHour + ':' + $scope.schedule.endMinute + ' ' + $scope.schedule.endTimeOfDay;

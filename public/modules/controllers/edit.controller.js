@@ -1,9 +1,11 @@
 angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule'])
-  .controller('editCtrl', ['$scope','tempStore', 'scheduleService', function ($scope, tempStore, scheduleService) {
+  .controller('editCtrl', ['$scope','tempStore', 'scheduleService', '$timeout', function ($scope, tempStore, scheduleService, $timeout) {
     $scope.scheduleUpdated = false;
+    $scope.errorUpdatingSchedule = false;
     $scope.scheduleCancelled= false;
     $scope.loadEntries = function () {
       $scope.currentAppointment = tempStore.currentAppointment;
+      console.log($scope.currentAppointment);
       scheduleService.getDoctor($scope.currentAppointment.doctor_id, function(doc) {
         $scope.scheduledDoctor = doc;
         $scope.currentAppointment.startHour       = parseInt($scope.currentAppointment.startTime.slice(0,2),10);
@@ -25,6 +27,10 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule'])
           $scope.scheduleUpdated = true;
         }
         else
+          $scope.errorUpdatingSchedule = true;
+          $timeout(function() {
+            $scope.errorUpdatingSchedule = false;
+          }, 2000);
           console.log(doc);
       });
     };

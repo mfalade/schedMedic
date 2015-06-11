@@ -1,6 +1,7 @@
 var mongoose       = require('mongoose');
 var Schema         = mongoose.Schema;
 var ScheduleSchema = new Schema({
+  
   doctor_id:             { type: String, required: true },
   doctorEmail:           { type: String, required: true }, 
   doc_firstname:         { type: String, required: true },

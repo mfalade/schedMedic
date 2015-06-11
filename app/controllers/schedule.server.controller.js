@@ -58,7 +58,7 @@ module.exports =  {
     var schedule_id = req.params.id;
     Schedule.findById(schedule_id, function (err, schedule) {
       if (err)
-        return res.json({ error: { message: "An unidentified error occured", code: 9000 } });
+        return res.json({ error: { message: "An unidentified error occured", code: 9000, err: err } });
       else
         if(req.body.message) schedule.message             = req.body.message;
         if(req.body.SelectedDay) schedule.SelectedDay     = req.body.SelectedDay;
@@ -69,7 +69,7 @@ module.exports =  {
 
         schedule.save(function(err, doc) {
           if(err)
-            return res.json({ error: { message: "An unidentified error occured.", code: 9000 } });
+            return res.json({ error: { message: "An unidentified error occured.", code: 9000, err: err } });
           else
             res.json({ message: "Schedule details updated.", code: 2222 });
         });
