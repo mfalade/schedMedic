@@ -64,7 +64,12 @@ module.exports =  {
         if(req.body.SelectedDay) schedule.SelectedDay     = req.body.SelectedDay;
         if(req.body.startTime) schedule.startTime         = req.body.startTime;
         if(req.body.endTime) schedule.endTime             = req.body.endTime;
-        if(req.body.status) schedule.status               = req.body.status;
+        if(req.body.status === "cancelled") {
+          schedule.status = "pending";
+        }
+        else {
+          schedule.status = req.body.status;
+        }
 
         schedule.save(function(err, doc) {
           if(err)
