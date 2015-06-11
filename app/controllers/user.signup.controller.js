@@ -1,4 +1,4 @@
-var email  = require('./verification.email.controller');
+var email  = require('./email.server.controller');
 var uniqid = require('uniqid');
 var User   = require('./../models/user');
 

@@ -1,6 +1,7 @@
 'use strict';
 
 var Schedule = require('./../models/schedule');
+var email    = require('./email.server.controller');
 
 module.exports =  {
   getSchedules: function (req, res) {
@@ -31,7 +32,6 @@ module.exports =  {
 
   saveSchedule: function(req, res) {
     var schedule            = new Schedule();
-
     schedule.doctor_id      =   req.body.doctor_id;
     schedule.doc_firstname  =   req.body.doc_firstname;
     schedule.doc_lastname   =   req.body.doc_lastname;
@@ -46,7 +46,9 @@ module.exports =  {
         return res.json({ error: { message: "An unidentified error occured", code: 9000 } });
       }
       else {
+
         res.json({ success: true, code: 2000, message: 'Schedule successfully added' });
+
       }
     });
   },

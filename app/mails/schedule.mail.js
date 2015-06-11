@@ -1,7 +1,7 @@
 'use strict';
 
-var VerificationTemplate = function(user) {
-  var user = user;
+var ScheduleTemplate = function(user) {
+  var user         = user;
   var mailTemplate =  '<div>' + 
                         '<p>Hi ' + user.username + ',</p>' + 
                       '</div>' + 
@@ -17,4 +17,4 @@ var VerificationTemplate = function(user) {
   return mailTemplate;
 };
 
-module.exports = VerificationTemplate;
+module.exports = ScheduleTemplate;

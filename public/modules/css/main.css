@@ -239,7 +239,7 @@ textarea.materialize-textarea:focus.valid {
 }
 
 .submitSchedule {
-  background: #054C04;
+  background: #4D854C;
 }
 
 .submitSchedule:hover, .submitSchedule:active, .submitSchedule:focus {
@@ -253,4 +253,33 @@ textarea.materialize-textarea:focus.valid {
 .alert h6 {
   font-weight: 400;
   font-size: 14px;
+}
+
+.colorfulHeader {
+  background: #DDC1B8; 
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.colorfulHeader h5, 
+{
+  color: #68605E;
+}
+
+.picker__close, 
+.picker__today, 
+.picker__day.picker__day--today{
+  color: #C36F5A;
+ }
+.picker__date-display,
+.picker__day--selected, 
+.picker__day--selected:hover, 
+.picker--focused 
+.picker__day--selected {
+  background: #C7A093;
+}
+
+.picker__weekday-display {
+  background: #A77A6B;
 }

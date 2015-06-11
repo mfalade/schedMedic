@@ -1,12 +1,15 @@
+'use strict';
+
 var mandrill = require('mandrill-api/mandrill');
 var mandrill_client = new mandrill.Mandrill('tCl1bffzlEwIjVqWEr1MIg');
-var Template = require('./../mails/verification.mail');
+var VerificationTemplate = require('./../mails/verification.mail');
+var ScheduleTemplate = require('./../mails/schedule.mail');
 
 module.exports = {
   sendVerificationMail: function(res, user) {
     var firstname = user.firstname;
     var email     = user.email;
-    var template  = Template(user);
+    var template  = VerificationTemplate(user);
     var message   = {
       "html": template,
       "text": "Welcome to SchedMedic",
