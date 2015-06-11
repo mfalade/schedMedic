@@ -27,7 +27,7 @@ angular.module('authModule', ['authServiceModule', 'authtokenModule'])
           $timeout(function() {
             $scope.loginSuccessful = false;
             $location.path('/patient/home');
-          }, 1000);
+          }, 500);
         }
         else {
           $scope.wrongUserInfo = true;

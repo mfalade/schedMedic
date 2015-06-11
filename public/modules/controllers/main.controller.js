@@ -17,7 +17,7 @@ angular.module('mainModule', ['authtokenModule'])
       $scope.userIsLoggedIn = false;
       $timeout(function() {
         $location.path('/');
-      }, 1000);
+      }, 500);
     };
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
