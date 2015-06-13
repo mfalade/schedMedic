@@ -2,6 +2,7 @@
 
 var express        = require('express');
 var app            = express();
+var cors           = require('cors');
 var db             = require('./config/db');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
@@ -16,6 +17,7 @@ else {
   mongoose.connect(db.productionUrl);
 }
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,7 +36,6 @@ app.listen(port, function(err) {
   }
   
 });
-
 
 exports = module.exports = app;
 

@@ -1,8 +1,8 @@
 angular.module('authServiceModule', [])
-  .factory('authService', ['$http', function ($http) {
+  .factory('authService', ['$http', 'options', function ($http, options) {
     return {
       signUpUser: function(newUser, cb) {
-        $http.post('/api/v1/users/signup', newUser)
+        $http.post(options.API_URL + 'users/signup', newUser)
           .success(function(doc) {
             cb(doc);
           })
@@ -12,7 +12,7 @@ angular.module('authServiceModule', [])
       },
 
       LogUserIn: function (user, cb) {
-        $http.post('/api/v1/users/authenticate', user)
+        $http.post(options.API_URL + 'users/authenticate', user)
           .success(function(doc) {
             cb(doc);
           })
