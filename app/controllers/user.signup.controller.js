@@ -5,7 +5,7 @@ var User   = require('./../models/user');
 module.exports = {
   addnewUser: function(req, res) {
     var unique_id      = uniqid();
-    var validationUrl  = 'http://localhost:5555/api/v1/users/verify/q?code=' + unique_id + '&username=' + req.body.username;
+    var validationUrl  = 'https://schedmedic.herokuapp.com/api/v1/users/verify/q?code=' + unique_id + '&username=' + req.body.username;
     var user           = new User();
     user.firstname     = req.body.firstname;
     user.lastname      = req.body.lastname;
