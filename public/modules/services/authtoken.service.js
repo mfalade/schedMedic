@@ -9,19 +9,6 @@ angular.module('authtokenModule', [])
    
      // create auth factory object
      var authFactory = {};
-   
-     // register a user
-    //  authFactory.register = function(registerData) {
-    //  // return the promise object and its data
-    //  return $http.post(options.API_URL + 'users', registerData)
-    //   .success(function(data) {
-    //     // AuthToken.setToken(data.access_token);
-    //     var data = data;
-    //     return data;
-    //   });
-    // };
-   
-   
      // log a user
      authFactory.login = function(loginData, cb) {
       
@@ -29,8 +16,6 @@ angular.module('authtokenModule', [])
      return $http.post(options.API_URL + 'users/authenticate', loginData)
       .success(function(data) {
 
-        //console.log(data);
-   
         AuthToken.setToken(data.token);
         cb(data);
       })

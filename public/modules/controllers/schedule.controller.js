@@ -1,3 +1,14 @@
+/*
+ * Schedule controller
+ *
+ * @description
+ * Controller for CRUDing a schedule
+ * @dependences
+ * ['scheduleServiceModule', 'authtokenModule', 'formValidationModule']
+ */
+
+
+
 angular.module('scheduleModule', ['scheduleServiceModule', 'authtokenModule', 'formValidationModule'])
   .controller('scheduleCtrl', ['$scope', '$rootScope', 'scheduleService', 'Auth', 'formValidation', '$timeout', function($scope, $rootScope, scheduleService, Auth, formValidation, $timeout) {
     $('select').material_select();
@@ -5,7 +16,8 @@ angular.module('scheduleModule', ['scheduleServiceModule', 'authtokenModule', 'f
     $scope.schduleFixed = false;
     $scope.formIsValid = true;
 
-    //Get the currrent user id as this would be needed when the schedule is to be stored..Fetch later user_id
+    //Get the currrent user information as this would be needed when the schedule is to be stored.
+
     Auth.getUser(function(doc) {
       $scope.currentUser = doc;
     });
@@ -14,6 +26,7 @@ angular.module('scheduleModule', ['scheduleServiceModule', 'authtokenModule', 'f
       return formValidation.validateForm(schedule);
     };
 
+    // Schedule the current schedule
     $scope.scheduleThis = function() {
       $scope.schedule.doctor_id      = $scope.scheduledDoctor._id;
       $scope.schedule.doctorEmail    = $scope.scheduledDoctor.email;

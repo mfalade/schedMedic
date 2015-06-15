@@ -1,3 +1,9 @@
+/**
+ * @desc Authentication service to sign up a new user
+ * .. this service logs a user in as well and sends the user 
+ */
+
+
 angular.module('authServiceModule', [])
   .factory('authService', ['$http', 'options', function ($http, options) {
     return {

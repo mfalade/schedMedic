@@ -1,5 +1,15 @@
 'use strict';
 
+/**
+ * app routes
+ * @description Main app routes to load view template and controller for each view
+ *
+ * @dependency {function} ui.router
+ * @dependency {function} ngCookies
+ * ui.router inplace of ng-route, ng-cookies to store session
+ *
+ */
+
 angular.module('appRouter', ['ui.router', 'ngCookies'])
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
@@ -73,6 +83,7 @@ angular.module('appRouter', ['ui.router', 'ngCookies'])
       $httpProvider.interceptors.push('AuthInterceptor');
   })
   .value('options', {
+    // value method to set options to customize url to avoid repeatition of base url
     'API_URL' : 'https://schedmedic.herokuapp.com/api/v1/'
     // 'API_URL' : 'http://localhost:5555/api/v1/'
   });

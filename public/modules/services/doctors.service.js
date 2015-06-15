@@ -1,3 +1,10 @@
+/**
+ * Doctors service
+ * Service to fetch list of doctors
+ * Also to add new doctors from the admin page
+ */
+
+
 angular.module('doctorServiceModule', [])
   .factory('docService', ['$http', 'options',function ($http, options) {
     return {

@@ -1,3 +1,10 @@
+/**
+ * Schedule service
+ * 
+ * @description this service is to CRUD schedules as well as fetch a single doctor information
+ * @definition: CRUD: 'Create', 'Read', 'Update', 'Delete'
+ */
+
 angular.module('scheduleServiceModule', [])
   .factory('scheduleService', ['$http', 'options', function($http, options) {
     return {

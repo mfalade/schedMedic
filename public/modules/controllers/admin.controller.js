@@ -1,3 +1,9 @@
+/**
+ * Admin controller
+ *
+ * @description Admin controller to add doctor
+ */
+
 angular.module('adminModule', ['doctorServiceModule'])
   .controller('adminCtrl', ['$scope', 'docService', function ($scope, docService) {
 

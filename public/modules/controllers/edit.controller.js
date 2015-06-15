@@ -1,3 +1,12 @@
+/*
+ * Edit schedule controller
+ * 
+ * @description edit schedule controller
+ * @methods: loadEntries: to load the current schedule information for modification
+ */
+
+
+
 angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule'])
   .controller('editCtrl', ['$scope','tempStore', 'scheduleService', '$timeout', function ($scope, tempStore, scheduleService, $timeout) {
     $scope.scheduleUpdated = false;

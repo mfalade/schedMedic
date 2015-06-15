@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * Backend API routes
+ * Routes and methods to be called when routes are hit 
+*/
+
 var User               = require('./models/user');
 var UsersController    = require('./controllers/user.server.controller');
 var AuthController     = require('./controllers/user.auth.controller');

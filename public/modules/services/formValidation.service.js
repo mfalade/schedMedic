@@ -1,3 +1,10 @@
+/**
+ * @desc custom service to validate every form imput before submission
+ * Returns value (true or false based on form values)
+ */
+
+
+
 angular.module('formValidationModule', [])
   .factory('formValidation', [function () {
     return {

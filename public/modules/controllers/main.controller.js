@@ -1,3 +1,10 @@
+/**
+ * main controller
+ *
+ * @description main controller to logout user, and reroute user based on the url visited and 
+ * login status
+ */
+
 angular.module('mainModule', ['authtokenModule'])
   .controller('mainCtrl', function($scope, $rootScope, $location, Auth, $timeout) {
     $scope.showSignup = function() {

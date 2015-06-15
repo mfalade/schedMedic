@@ -1,3 +1,10 @@
+/**
+ * Auth controller
+ * 
+ * @description Authentication controller for signing up and login in user
+ */
+
+
 angular.module('authModule', ['authServiceModule', 'authtokenModule'])
   .controller('authCtrl', function($scope, $rootScope, authService, Auth, $location, $timeout) {
     $scope.newUser = {};

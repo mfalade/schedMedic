@@ -1,3 +1,8 @@
+/**
+ * userHome controller
+ * @description controller that handles the user's home page methods
+ */
+
 angular.module('userHomeModule', ['authtokenModule', 'scheduleServiceModule', 'tempStoreModule'])
   .controller('userHomeCtrl', ['$scope', 'scheduleService', 'Auth', 'tempStore', '$location', function($scope, scheduleService, Auth, tempStore, $location) {
     Auth.getUser(function(doc) {
