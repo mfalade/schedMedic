@@ -1,13 +1,18 @@
-angular.module('scheduleModule', ['scheduleServiceModule', 'authtokenModule'])
-  .controller('scheduleCtrl', ['$scope', '$rootScope', 'scheduleService', 'Auth', function($scope, $rootScope, scheduleService, Auth) {
+angular.module('scheduleModule', ['scheduleServiceModule', 'authtokenModule', 'formValidationModule'])
+  .controller('scheduleCtrl', ['$scope', '$rootScope', 'scheduleService', 'Auth', 'formValidation', '$timeout', function($scope, $rootScope, scheduleService, Auth, formValidation, $timeout) {
     $('select').material_select();
     $scope.schedule = {};
     $scope.schduleFixed = false;
+    $scope.formIsValid = true;
 
     //Get the currrent user id as this would be needed when the schedule is to be stored..Fetch later user_id
     Auth.getUser(function(doc) {
       $scope.currentUser = doc;
     });
+
+    $scope.validateForm = function(schedule) {
+      return formValidation.validateForm(schedule);
+    };
 
     $scope.scheduleThis = function() {
       $scope.schedule.doctor_id      = $scope.scheduledDoctor._id;
@@ -18,13 +23,21 @@ angular.module('scheduleModule', ['scheduleServiceModule', 'authtokenModule'])
       $scope.schedule.patientName    = $scope.currentUser.firstname + ' ' + $scope.currentUser.lastname;
       $scope.schedule.startTime      = $scope.schedule.startHour + ':' + $scope.schedule.startMinute + ' ' + $scope.schedule.startTimeOfDay;
       $scope.schedule.endTime        = $scope.schedule.endHour + ':' + $scope.schedule.endMinute + ' ' + $scope.schedule.endTimeOfDay;
-      scheduleService.createSchedule($scope.schedule, function(doc) {
-        if(doc.code === 2000)  {
-          $scope.schduleFixed = true;
-        }
-        else
-          console.log(doc);
-      });
+      $scope.formIsValid = $scope.validateForm($scope.schedule);
+      if($scope.formIsValid) {
+        scheduleService.createSchedule($scope.schedule, function(doc) {
+          if(doc.code === 2000)  {
+            $scope.schduleFixed = true;
+          }
+          else
+            console.log(doc);
+        });
+      }
+      else {
+        $timeout(function() {
+          $scope.formIsValid = true;
+        }, 2000);
+      }
     }; 
 
     $scope.getSchedule = function () {

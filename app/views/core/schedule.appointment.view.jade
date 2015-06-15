@@ -1,9 +1,11 @@
+div.rowdiv(class="customErrorAlert", ng-if="!formIsValid")
+  p {{"An error occured. Please be sure to fill out all the fields."}}
 div.userPage
   div.sideMArgin
     div.paddingTopMd
       div.row
         div(class="col s8", ng-show="!schduleFixed")
-          div.card-panel
+          div.card-panel.parentCard
             div.colorfulHeader
               h5 Schedule an appointment with Dr {{scheduledDoctor.firstname + '.'}}
             div(class="row center-align")

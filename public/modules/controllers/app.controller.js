@@ -7,5 +7,6 @@ angular.module('App', ['appRouter',
   'adminModule', 
   'scheduleModule',
   'userHomeModule',
-  'editModule'
+  'editModule',
+  'formValidationModule'
 ]);
