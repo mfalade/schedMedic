@@ -47,7 +47,6 @@ module.exports = {
 
   deleteUser: function(req, res) {
     var user_id = req.params.id;
-    console.log(user_id + "is about to be deleted");
     User.remove({_id: user_id}, function(err, user) {
       if(err)
         return res.json({ error: { message: "An undefined error occured", code: 9000} });

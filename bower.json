@@ -23,5 +23,8 @@
     "ui-router": "~0.2.15",
     "materialize": "~0.96.1",
     "jquery-timepicker-jt": "~1.7.0"
+  },
+  "resolutions": {
+    "moment": "~2.3.1"
   }
 }

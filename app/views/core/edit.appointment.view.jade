@@ -1,6 +1,6 @@
 div.userPage
-  div(class="customErrorAlert", ng-if="errorUpdatingSchedule")
-    p An error occured updating this schedule.
+  div(class="customErrorAlert", ng-if="!formIsValid")
+    p(ng-bind="formErrorMessage")
   div.sideMArgin
     div.paddingTopMd
       div.row
@@ -17,89 +17,81 @@ div.userPage
                 div.input-field
                   input(type="text", class="datepicker", id="date", ng-model="currentAppointment.SelectedDay") 
                   label(for="date") Select date
-                div.input-field
-                  p Start time: {{currentAppointment.startHour + ' : ' + currentAppointment.startMinute + ' : ' + currentAppointment.startTimeOfDay}}
-                  div.row.card-panel
-                    div.col.s4
-                      div.input-field
-                        select(ng-model="currentAppointment.startHour", class="browser-default", convert-to-number)
-                          option(value="" disabled selected) Hour
-                          option(value="1") 01
-                          option(value="2") 02
-                          option(value="3") 03
-                          option(value="4") 04
-                          option(value="5") 05
-                          option(value="6") 06
-                          option(value="7") 07
-                          option(value="8") 08
-                          option(value="9") 09
-                          option(value="10") 10
-                          option(value="11") 11
-                          option(value="12") 12
-                    div.col.s4
-                      div.input-field
-                        select(ng-model="currentAppointment.startMinute", class="browser-default", convert-to-number)
-                          option(value="" disabled selected) Minute
-                          option(value="0") 00
-                          option(value="10") 10
-                          option(value="15") 15
-                          option(value="20") 20
-                          option(value="25") 25
-                          option(value="30") 30
-                          option(value="35") 35
-                          option(value="40") 40
-                          option(value="45") 45
-                          option(value="50") 50
-                          option(value="55") 55
-                    div.col.s4
-                      div.input-field
-                        select(ng-model="currentAppointment.startTimeOfDay", class="browser-default")
-                          option(value="" disabled selected) AM/PM
-                          option(value="AM") AM
-                          option(value="PM") PM
+                div.row.card-panel
+                  div.col.s2
+                    p From
 
-                          //- End time section 
+                  div.col.s4
+                    div.input-field
+                      select(ng-model="currentAppointment.startTime", class="browser-default")
+                        option(value="" disabled selected) Select time
+                        option(value="07:00 AM") 07:00 AM
+                        option(value="07:30 AM") 07:30 AM
+                        option(value="08:00 AM") 08:00 AM
+                        option(value="08:30 AM") 08:30 AM
+                        option(value="09:00 AM") 09:00 AM
+                        option(value="09:30 AM") 09:30 AM
+                        option(value="10:00 AM") 10:00 AM
+                        option(value="10:30 AM") 10:30 AM
+                        option(value="11:00 AM") 11:00 AM
+                        option(value="11:30 AM") 11:30 AM
+                        option(value="12:00 PM") 12:00 PM
+                        option(value="12:30 PM") 12:30 PM
+                        option(value="01:00 PM") 01:00 PM
+                        option(value="01:30 PM") 01:30 PM
+                        option(value="02:00 PM") 02:00 PM
+                        option(value="02:30 PM") 02:30 PM
+                        option(value="03:00 PM") 03:00 PM
+                        option(value="03:30 PM") 03:30 PM
+                        option(value="04:00 PM") 04:00 PM
+                        option(value="04:30 PM") 04:30 PM
+                        option(value="05:00 PM") 05:00 PM
+                        option(value="05:30 PM") 05:30 PM
+                        option(value="06:00 PM") 06:00 PM
+                        option(value="06:30 PM") 06:30 PM
+                        option(value="07:00 PM") 07:00 PM
+                        option(value="07:30 PM") 07:30 PM
+                        option(value="08:00 PM") 08:00 PM
 
-                  div.input-field
-                    p End time: {{currentAppointment.endHour + ' : ' + currentAppointment.endMinute + ' : ' + currentAppointment.endTimeOfDay}}
-                    div.row.card-panel
-                      div.col.s4
-                        div.input-field
-                          select(ng-model="currentAppointment.endHour", class="browser-default", convert-to-number)
-                            option(value="" disabled) Hour
-                            option(value="1") 01
-                            option(value="2") 02
-                            option(value="3") 03
-                            option(value="4") 04
-                            option(value="5") 05
-                            option(value="6") 06
-                            option(value="7") 07
-                            option(value="8") 08
-                            option(value="9") 09
-                            option(value="10") 10
-                            option(value="11") 11
-                            option(value="12") 12
-                      div.col.s4
-                        div.input-field
-                          select(ng-model="currentAppointment.endMinute", class="browser-default", convert-to-number)
-                            option(value="" disabled) Minute
-                            option(value="0") 00
-                            option(value="10") 10
-                            option(value="15") 15
-                            option(value="20") 20
-                            option(value="25") 25
-                            option(value="30") 30
-                            option(value="35") 35
-                            option(value="40") 40
-                            option(value="45") 45
-                            option(value="50") 50
-                            option(value="55") 55
-                      div.col.s4
-                        div.input-field
-                          select(ng-model="currentAppointment.endTimeOfDay", class="browser-default")
-                            option(value="" disabled) AM/PM
-                            option(value="AM") AM
-                            option(value="PM") PM
+                  div.col.s2
+                    p to 
+
+                  div.col.s4
+                    div.input-field
+                      select(ng-model="currentAppointment.endTime", class="browser-default")
+                        option(value="" disabled selected) Select time
+                        option(value="07:00 AM") 07:00 AM
+                        option(value="07:30 AM") 07:30 AM
+                        option(value="08:00 AM") 08:00 AM
+                        option(value="08:30 AM") 08:30 AM
+                        option(value="09:00 AM") 09:00 AM
+                        option(value="09:30 AM") 09:30 AM
+                        option(value="10:00 AM") 10:00 AM
+                        option(value="10:30 AM") 10:30 AM
+                        option(value="11:00 AM") 11:00 AM
+                        option(value="11:30 AM") 11:30 AM
+                        option(value="12:00 PM") 12:00 PM
+                        option(value="12:30 PM") 12:30 PM
+                        option(value="01:00 PM") 01:00 PM
+                        option(value="01:30 PM") 01:30 PM
+                        option(value="02:00 PM") 02:00 PM
+                        option(value="02:30 PM") 02:30 PM
+                        option(value="03:00 PM") 03:00 PM
+                        option(value="03:30 PM") 03:30 PM
+                        option(value="04:00 PM") 04:00 PM
+                        option(value="04:30 PM") 04:30 PM
+                        option(value="05:00 PM") 05:00 PM
+                        option(value="05:30 PM") 05:30 PM
+                        option(value="06:00 PM") 06:00 PM
+                        option(value="06:30 PM") 06:30 PM
+                        option(value="07:00 PM") 07:00 PM
+                        option(value="07:30 PM") 07:30 PM
+                        option(value="08:00 PM") 08:00 PM
+                        //- End time section 
+
+              div(class="center-align", ng-if="!scheduleUpdated && !scheduleCancelled")
+                button(class="btn-large waves-effect center-align submitSchedule", ng-click="updateChanges()") Save changes
+                  i.mdi-content-send.right
                   
         div(class="col s8", ng-if="scheduleUpdated")
           div.card-panel.toastr
@@ -128,9 +120,6 @@ div.userPage
                 div.card-action
                   p {{scheduledDoctor.specialization}}
                   p {{scheduledDoctor.email}}
-          div(class="center-align", ng-if="!scheduleUpdated && !scheduleCancelled")
-            button(class="btn-large waves-effect center-align submitSchedule", ng-click="updateChanges()") Save changes
-              i.mdi-content-send.right
           br
           div(class="center-align", ng-if="!scheduleCancelled && !scheduleUpdated")
             button(class="btn-large waves-effect deleteSchedule center-align", ng-click="cancelAppointment()") Cancel this appointment

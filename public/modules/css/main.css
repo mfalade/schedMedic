@@ -336,3 +336,9 @@ textarea.materialize-textarea:focus.valid {
   background: #6BC691;
   border: 1px solid #529072;
 }
+
+.col .s2 > p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #272532;
+}

@@ -1,5 +1,5 @@
 div.rowdiv(class="customErrorAlert", ng-if="!formIsValid")
-  p {{"An error occured. Please be sure to fill out all the fields."}}
+  p(ng-bind="formErrorMessage")
 div.userPage
   div.sideMArgin
     div.paddingTopMd
@@ -17,88 +17,83 @@ div.userPage
                   input(type="text", class="datepicker", id="date", ng-model="schedule.SelectedDay") 
                   label(for="date") Select date
                 div.input-field
-                  p Start time: {{schedule.startHour + ' : ' + schedule.startMinute + ' : ' + schedule.startTimeOfDay}}
                   div.row.card-panel
-                    div.col.s4
-                      div.input-field
-                        select(ng-model="schedule.startHour", class="browser-default", convert-to-number)
-                          option(value="" disabled selected) Hour
-                          option(value="01") 01
-                          option(value="02") 02
-                          option(value="03") 03
-                          option(value="04") 04
-                          option(value="05") 05
-                          option(value="06") 06
-                          option(value="07") 07
-                          option(value="08") 08
-                          option(value="09") 09
-                          option(value="10") 10
-                          option(value="11") 11
-                          option(value="12") 12
-                    div.col.s4
-                      div.input-field
-                        select(ng-model="schedule.startMinute", class="browser-default", convert-to-number)
-                          option(value="" disabled selected) Minute
-                          option(value="00") 00
-                          option(value="10") 10
-                          option(value="15") 15
-                          option(value="20") 20
-                          option(value="25") 25
-                          option(value="30") 30
-                          option(value="35") 35
-                          option(value="40") 40
-                          option(value="45") 45
-                          option(value="50") 50
-                          option(value="55") 55
-                    div.col.s4
-                      div.input-field
-                        select(ng-model="schedule.startTimeOfDay", class="browser-default")
-                          option(value="" disabled selected) AM/PM
-                          option(value="AM") AM
-                          option(value="PM") PM
+                    div.col.s2
+                      p From
 
+                    div.col.s4
+                      div.input-field
+                        select(ng-model="schedule.startTime", class="browser-default")
+                          option(value="" disabled selected) Select time
+                          option(value="07:00 AM") 07:00 AM
+                          option(value="07:30 AM") 07:30 AM
+                          option(value="08:00 AM") 08:00 AM
+                          option(value="08:30 AM") 08:30 AM
+                          option(value="09:00 AM") 09:00 AM
+                          option(value="09:30 AM") 09:30 AM
+                          option(value="10:00 AM") 10:00 AM
+                          option(value="10:30 AM") 10:30 AM
+                          option(value="11:00 AM") 11:00 AM
+                          option(value="11:30 AM") 11:30 AM
+                          option(value="12:00 PM") 12:00 PM
+                          option(value="12:30 PM") 12:30 PM
+                          option(value="01:00 PM") 01:00 PM
+                          option(value="01:30 PM") 01:30 PM
+                          option(value="02:00 PM") 02:00 PM
+                          option(value="02:30 PM") 02:30 PM
+                          option(value="03:00 PM") 03:00 PM
+                          option(value="03:30 PM") 03:30 PM
+                          option(value="04:00 PM") 04:00 PM
+                          option(value="04:30 PM") 04:30 PM
+                          option(value="05:00 PM") 05:00 PM
+                          option(value="05:30 PM") 05:30 PM
+                          option(value="06:00 PM") 06:00 PM
+                          option(value="06:30 PM") 06:30 PM
+                          option(value="07:00 PM") 07:00 PM
+                          option(value="07:30 PM") 07:30 PM
+                          option(value="08:00 PM") 08:00 PM
+
+                    div.col.s2
+                      p to 
+
+                    div.col.s4
+                      div.input-field
+                        select(ng-model="schedule.endTime", class="browser-default")
+                          option(value="" disabled selected) Select time
+                          option(value="07:00 AM") 07:00 AM
+                          option(value="07:30 AM") 07:30 AM
+                          option(value="08:00 AM") 08:00 AM
+                          option(value="08:30 AM") 08:30 AM
+                          option(value="09:00 AM") 09:00 AM
+                          option(value="09:30 AM") 09:30 AM
+                          option(value="10:00 AM") 10:00 AM
+                          option(value="10:30 AM") 10:30 AM
+                          option(value="11:00 AM") 11:00 AM
+                          option(value="11:30 AM") 11:30 AM
+                          option(value="12:00 PM") 12:00 PM
+                          option(value="12:30 PM") 12:30 PM
+                          option(value="01:00 PM") 01:00 PM
+                          option(value="01:30 PM") 01:30 PM
+                          option(value="02:00 PM") 02:00 PM
+                          option(value="02:30 PM") 02:30 PM
+                          option(value="03:00 PM") 03:00 PM
+                          option(value="03:30 PM") 03:30 PM
+                          option(value="04:00 PM") 04:00 PM
+                          option(value="04:30 PM") 04:30 PM
+                          option(value="05:00 PM") 05:00 PM
+                          option(value="05:30 PM") 05:30 PM
+                          option(value="06:00 PM") 06:00 PM
+                          option(value="06:30 PM") 06:30 PM
+                          option(value="07:00 PM") 07:00 PM
+                          option(value="07:30 PM") 07:30 PM
+                          option(value="08:00 PM") 08:00 PM
                           //- End time section 
 
-                  div.input-field
-                    p End time: {{schedule.endHour + ' : ' + schedule.endMinute + ' : ' + schedule.endTimeOfDay}}
-                    div.row.card-panel
-                      div.col.s4
-                        div.input-field
-                          select(ng-model="schedule.endHour", class="browser-default", convert-to-number)
-                            option(value="" disabled selected) Hour
-                            option(value="01") 01
-                            option(value="02") 02
-                            option(value="03") 03
-                            option(value="04") 04
-                            option(value="05") 05
-                            option(value="06") 06
-                            option(value="07") 07
-                            option(value="08") 08
-                            option(value="09") 09
-                            option(value="10") 10
-                            option(value="11") 11
-                            option(value="12") 12
-                      div.col.s4
-                        div.input-field
-                          select(ng-model="schedule.endMinute", class="browser-default", convert-to-number)
-                            option(value="" disabled selected) Minute
-                            option(value="00") 00
-                            option(value="10") 10
-                            option(value="15") 15
-                            option(value="20") 20
-                            option(value="25") 25
-                            option(value="30") 30
-                            option(value="35") 35
-                            option(value="40") 40
-                            option(value="45") 45
-                            option(value="50") 50
-                            option(value="55") 55
-                      div.col.s4
-                        div.input-field
-                          select(ng-model="schedule.endTimeOfDay", class="browser-default")
-                            option(value="" disabled selected) AM/PM
-                            option(value="AM") AM
-                            option(value="PM") PM
+                div(class="center-align", ng-if="!schduleFixed")
+                  button(class="btn-large waves-effect center-align submitSchedule", ng-click="scheduleThis(schedule)") Schedule Appointment
+                    i.mdi-content-send.right
+
+                  
         div(class="col s8", ng-if="schduleFixed")
           div.card-panel.toastr
             div(class="row fadeInDown", ng-if="schduleFixed")      
@@ -117,7 +112,5 @@ div.userPage
                   p {{scheduledDoctor.specialization}}
                   p {{scheduledDoctor.email}}
 
-          div(class="center-align", ng-if="!schduleFixed")
-            button(class="btn-large waves-effect center-align submitSchedule", ng-click="scheduleThis(schedule)") Schedule Appointment
-              i.mdi-content-send.right
+          
                    
