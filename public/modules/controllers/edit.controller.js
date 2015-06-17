@@ -11,6 +11,7 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule', 'formV
   .controller('editCtrl', ['$scope','tempStore', 'scheduleService', '$timeout', 'formValidator',  function ($scope, tempStore, scheduleService, $timeout, formValidator) {
     $scope.scheduleUpdated   = false;
     $scope.scheduleCancelled = false;
+    $scope.newCurrentAppointment = {}; 
     $scope.formIsValid       = true;
     $scope.loadEntries = function () {
       $scope.currentAppointment = tempStore.currentAppointment;
@@ -27,6 +28,9 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule', 'formV
       $scope.formIsValid             = formValidationResult.validForm;
 
       if($scope.formIsValid) {
+        $scope.currentAppointment.message     = $scope.newCurrentAppointment.message || $scope.currentAppointment.message;
+        $scope.currentAppointment.SelectedDay = $scope.newCurrentAppointment.SelectedDay || $scope.currentAppointment.SelectedDay;
+        $scope.currentAppointment.status      = 'cancelled';
         scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
           if(doc.code === 2222) {
             $scope.scheduleUpdated = true;
@@ -50,6 +54,7 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule', 'formV
         $scope.currentAppointment.status = 'cancelled';
         scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
           $scope.scheduleCancelled= true;
+          console.log('So appointments are meant to be  cancelled right, what do we have here: ', doc)
         });
       }
       else 

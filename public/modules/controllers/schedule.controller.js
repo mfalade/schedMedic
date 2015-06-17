@@ -37,14 +37,13 @@ angular.module('scheduleModule', ['scheduleServiceModule', 'authtokenModule', 'f
       $scope.formErrorMessage        = formValidationResult.remark;
       $scope.formIsValid             = formValidationResult.validForm;
       if($scope.formIsValid) {
-        // scheduleService.createSchedule($scope.schedule, function(doc) {
-        //   if(doc.code === 2000)  {
-        //     $scope.schduleFixed = true;
-        //   }
-        //   else
-        //     console.log(doc);
-        // });
-        alert('Form is valid');
+        scheduleService.createSchedule($scope.schedule, function(doc) {
+          if(doc.code === 2000)  {
+            $scope.schduleFixed = true;
+          }
+          else
+            console.log(doc);
+        });
       }
       else {
         $timeout(function() {

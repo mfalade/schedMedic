@@ -12,11 +12,11 @@ div.userPage
               div.divider
               div
                 div.input-field
-                  input(id="message", type="text", class="validate", ng-model="currentAppointment.message")
-                  label(for="message") Title
+                  input(id="message", type="text", class="validate", ng-model="newCurrentAppointment.message")
+                  label(for="message", ng-bind="currentAppointment.message")
                 div.input-field
-                  input(type="text", class="datepicker", id="date", ng-model="currentAppointment.SelectedDay") 
-                  label(for="date") Select date
+                  input(type="text", class="datepicker", id="date", ng-model="newCurrentAppointment.SelectedDay") 
+                  label(for="date", ng-bind="currentAppointment.SelectedDay") 
                 div.row.card-panel
                   div.col.s2
                     p From
