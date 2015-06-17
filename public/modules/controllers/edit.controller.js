@@ -30,7 +30,7 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule', 'formV
       if($scope.formIsValid) {
         $scope.currentAppointment.message     = $scope.newCurrentAppointment.message || $scope.currentAppointment.message;
         $scope.currentAppointment.SelectedDay = $scope.newCurrentAppointment.SelectedDay || $scope.currentAppointment.SelectedDay;
-        $scope.currentAppointment.status      = 'cancelled';
+        $scope.currentAppointment.status      = 'pending';
         scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
           if(doc.code === 2222) {
             $scope.scheduleUpdated = true;
