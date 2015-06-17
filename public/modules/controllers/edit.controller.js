@@ -54,7 +54,6 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule', 'formV
         $scope.currentAppointment.status = 'cancelled';
         scheduleService.updateSchedule($scope.currentAppointment._id, $scope.currentAppointment, function(doc) {
           $scope.scheduleCancelled= true;
-          console.log('So appointments are meant to be  cancelled right, what do we have here: ', doc)
         });
       }
       else 
