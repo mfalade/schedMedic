@@ -4,7 +4,9 @@ div.row
         br
         div.card-panel.authform
           div(class="row", ng-if="!doctorAdded")
-            h4.center-align Add a new doctor
+            h4.center-align 
+              | Add a new 
+              a(ui-sref="doctor") doctor
             div.divider
             div.input-field.col.s6
               input(id="first_name", type="text", class="validate", ng-model="newDoctor.firstname")

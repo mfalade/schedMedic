@@ -66,6 +66,16 @@ angular.module('scheduleServiceModule', [])
           .error(function(err) {
             cb(err);
           })
+      },
+
+      getDoctorSchedules: function(param, cb) {
+        $http.get(options.API_URL + 'doctor/schedules/' + param)
+          .success(function(doc) {
+            cb(doc);
+          })
+          .error(function(err) {
+            cb(err);
+          })
       }
     };
 

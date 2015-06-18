@@ -1,3 +1,35 @@
-div.userPage
-  div.sideMArgin
-    h4 Welcome to your home page dear doctor you. 
+div#docView
+  div.row
+    div(id="leftCol", class="col s6" class="{{activeClass}}")
+      div.sideMArgin
+        ul.collection.marginTopMd
+          li(class="collection-item" ng-repeat="i in [1,2,3]")
+            div.row
+              div.col.s8
+                p
+                  b Schedule message
+                p By Mr Patient name
+                p
+                  i.mdi-action-list
+                    |  Schedule day
+                p Schedule start time to Schedule endTime
+              div.col.s4
+
+        
+    div(id="rightCol" class="callToAction col s6")
+      div.sideMArgin.marginTopMedium
+        h4.center-align Manage your appointments
+        br
+        div.row
+          div.col.s4
+            div(class="card confirmedDocCard center-align", ng-click="showCategory('confirmed')")
+              i.medium.mdi-action-done
+              h5 Confirmed appointments
+          div.col.s4
+            div(class="card cancelledDocCard center-align", ng-click="showCategory('cancelled')")
+              i.medium.mdi-navigation-cancel
+              h5 Cancelled appointments
+          div.col.s4
+            div(class="card pendingDocCard center-align", ng-click="showCategory('pending')")
+              i.medium.mdi-navigation-unfold-less
+              h5 Pending appointments

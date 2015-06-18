@@ -24,9 +24,7 @@ html {
   background: #000;
 }
 
-.userPage {
-  background: url('../images/bg4.jpg') no-repeat;
-  background-size: cover;
+.userPage, #docView {
   padding:0;
   margin: 0;
   position: relative;
@@ -34,7 +32,12 @@ html {
   min-height : 637px;;
 }
 
-.userPage h1, .userPage  h2, .userPage  h3, .userPage  h4, .userPage h5 {
+.userPage {
+  background: url('../images/bg4.jpg') no-repeat;
+  background-size: cover;
+}
+
+.userPage h1, .userPage  h2, .userPage  h3, .userPage h4, .userPage h5, .docView h1, .docView h2, .docView h3, .docView h4, .docView h5, .docView h6 {
   margin: 0;
 }
 
@@ -53,6 +56,10 @@ html {
 
 .marginTopMd {
   margin-top: 10%;
+}
+
+.marginTopMedium {
+  margin-top: 25%;
 }
 
 .marginTopLg {
@@ -340,5 +347,71 @@ textarea.materialize-textarea:focus.valid {
 .col .s2 > p {
   margin-top: 20px;
   font-size: 18px;
+  color: #272532;
+}
+
+#docView {
+  background: #000;
+  color: #fff;
+}
+
+#leftCol, #rightCol {
+  height: 620px;
+}
+
+#rightCol {
+  background: #EBEBEB;
+}
+
+.callToAction .card {
+  padding: 10px;
+}
+
+.callToAction .card i {
+  color: #eee;
+}
+
+.callToAction h4, .callToAction h5 {
+  color: #272532;
+}
+
+.confirmedDocCard {
+  background: #B7D8B9;
+}
+
+.cancelledDocCard, .doc_cancelled {
+  background: #C16363;
+}
+
+.pendingDocCard {
+  background: #E7C993;
+}
+
+.doc_pending {
+  background: #E8C482;
+}
+
+.doc_confirmed {
+  background: #80CA84;
+} 
+
+
+.pendingDocCard, .cancelledDocCard, .confirmedDocCard {
+  transition: all linear .5s;
+ }
+
+.confirmedDocCard:hover {
+  background: #80CA84;
+}
+
+.cancelledDocCard:hover {
+  background: #BE4444;
+}
+
+.pendingDocCard:hover {
+  background: #E8C482;
+}
+
+#leftCol .collection {
   color: #272532;
 }
