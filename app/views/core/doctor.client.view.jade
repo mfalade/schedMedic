@@ -2,6 +2,7 @@ div#docView
   div.row
     div(id="leftCol", class="col s6" class="{{activeClass}}")
       div.sideMArgin
+        h4 {{activeCategory }} Schedules
         ul.collection.marginTopMd
           li(class="collection-item" ng-repeat="schedule in currentDoctorSchedules")
             div.row

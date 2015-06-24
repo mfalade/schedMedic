@@ -415,3 +415,9 @@ textarea.materialize-textarea:focus.valid {
 #leftCol .collection {
   color: #272532;
 }
+
+#docView h4{
+  text-transform: capitalize;
+  margin-bottom: 0;
+  margin-top: 50px;
+}
