@@ -43,6 +43,11 @@ module.exports = function (app, express) {
       DoctorsController.addDoctor(req, res);
     });
 
+  apiRouterV1.route('/doctors/schedules/:id')
+    .get(function(req, res) {
+      ScheduleController.getDoctorSchedules(req, res);
+    });
+
   apiRouterV1.route('/users/verify/:q')
     .get(function(req, res) {
       AuthController.verifyLink(req, res);
@@ -51,7 +56,7 @@ module.exports = function (app, express) {
   apiRouterV1.route('/schedules')
     .get(function(req, res) {
       ScheduleController.getSchedules(req, res);
-    })
+    })  
     .post(function(req, res) {
       ScheduleController.saveSchedule(req, res);
     });
@@ -104,3 +109,5 @@ module.exports = function (app, express) {
   app.use('/api/v1', apiRouterV1);
   return app;
 };
+
+

@@ -30,6 +30,15 @@ module.exports =  {
     });
   },
 
+  getDoctorSchedules: function(req, res) {
+    var doctor_id = req.params.id;
+    Schedule.find({ 'doctor_id': doctor_id }, function(err, doc){
+      if(err)
+        return res.json({ error: { message: "An unidentified error occured", code: 9000 } });
+      res.json(doc);
+    });
+  },
+
   saveSchedule: function(req, res) {
     var schedule            = new Schedule();
     schedule.doctor_id      =   req.body.doctor_id;
