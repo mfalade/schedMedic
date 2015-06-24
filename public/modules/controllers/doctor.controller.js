@@ -1,7 +1,8 @@
 angular.module('doctorModule', ['scheduleServiceModule'])
   .controller('doctorCtrl', ['$scope','scheduleService', function($scope, scheduleService) {
-    $scope.currentDoctorId = "5571b2e2178a323925af334d";
+    $scope.currentDoctorId = "557865621a81f3030020491f";
     $scope.activeClass = 'doc_cancelled'; // This is to add the red background color by default
+    $scope.currentDoctorSchedules = {};
 
     $scope.getDoctorSchedules = function (doc_id) {
       scheduleService.getDoctorSchedules($scope.currentDoctorId, function(doc) {

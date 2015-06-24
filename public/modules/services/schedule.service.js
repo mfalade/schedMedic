@@ -69,7 +69,7 @@ angular.module('scheduleServiceModule', [])
       },
 
       getDoctorSchedules: function(param, cb) {
-        $http.get(options.API_URL + 'doctor/schedules/' + param)
+        $http.get(options.API_URL + 'doctors/schedules/' + param)
           .success(function(doc) {
             cb(doc);
           })

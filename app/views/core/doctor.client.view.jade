@@ -3,16 +3,16 @@ div#docView
     div(id="leftCol", class="col s6" class="{{activeClass}}")
       div.sideMArgin
         ul.collection.marginTopMd
-          li(class="collection-item" ng-repeat="i in [1,2,3]")
+          li(class="collection-item" ng-repeat="schedule in currentDoctorSchedules")
             div.row
               div.col.s8
                 p
-                  b Schedule message
-                p By Mr Patient name
+                  b(ng-bind="schedule.message")
+                p By {{schedule.patientName}}
                 p
                   i.mdi-action-list
-                    |  Schedule day
-                p Schedule start time to Schedule endTime
+                    |  {{schedule.SelectedDay}}
+                p {{schedule.startTime}} to {{schedule.endTime}}
               div.col.s4
 
         
