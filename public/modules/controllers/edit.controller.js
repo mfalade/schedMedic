@@ -23,7 +23,7 @@ angular.module('editModule', ['tempStoreModule', 'scheduleServiceModule', 'formV
     $scope.loadEntries();
 
     $scope.updateChanges = function() {
-      var formValidationResult       = formValidator.validateForm($scope.currentAppointment);
+      var formValidationResult       = formValidator.validateScheduleForm($scope.currentAppointment);
       $scope.formErrorMessage        = formValidationResult.remark;
       $scope.formIsValid             = formValidationResult.validForm;
 

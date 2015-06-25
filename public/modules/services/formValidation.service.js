@@ -7,7 +7,8 @@
 angular.module('formValidationModule', [])
   .factory('formValidator', [function () {
     return {
-      validateForm: function(schedule){
+
+      validateScheduleForm: function (schedule) {
         var startTime     = new Date("1/1/2015 " + schedule.startTime),
             endTime       = new Date("1/1/2015 " + schedule.endTime),
             scheduleDate  = new Date(schedule.SelectedDay);
@@ -44,8 +45,34 @@ angular.module('formValidationModule', [])
         return { validForm: timeFrameIsValid, remark: notificationMessage };
       },
 
-      validateAuthForm: function(info) {
-        return false;
+      validateAuthForm: function(newUser, typeOfAuth) {
+        var notificationMsg = null;
+        var validFormDetails = true;
+
+        // This is the same form authentication method to be used for both the signup and login forms hence the typeOfAuth
+
+        switch(typeOfAuth) {
+          case 'signup':
+            if(!newUser.firstname || !newUser.lastname || !newUser.username || !newUser.email || !newUser.password || /\s/g.test(newUser.password)) {
+              validFormDetails = false;
+              notificationMsg = "Please fill out all the required fields";
+            }
+            if(/\s/g.test(newUser.password)) {
+              notificationMsg = "Really, that's the best password you can think of ?!";
+            }
+            return { validForm: validFormDetails, remark: notificationMsg };
+            break;
+
+          case 'login':
+            if(!newUser.username || !newUser.password) {
+              validFormDetails = false;
+              notificationMsg = "Please fill out the required fields."
+            }
+            return { validForm: validFormDetails, remark: notificationMsg };
+            break;
+          default:
+            return true;
+        }
       }
     };
   }])

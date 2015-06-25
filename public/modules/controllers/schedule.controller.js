@@ -22,7 +22,7 @@ angular.module('scheduleModule', ['scheduleServiceModule', 'authtokenModule', 'f
     });
 
     $scope.validateForm = function(schedule) {
-      return formValidator.validateForm(schedule);
+      return formValidator.validateScheduleForm(schedule);
     };
 
     // Schedule the current schedule

@@ -1,3 +1,5 @@
+div.rowdiv(class="customErrorAlert", ng-if="!formIsValid")
+  p(ng-bind="formErrorMessage")
 div.row
   div.container
       form.col.s12
@@ -6,8 +8,6 @@ div.row
           div(class="row", ng-if="!verificationMailSent")
             h4.center-align Signup for SchedMedic
             div.divider
-            div(ng-if="userExists")
-              p.errMsg.center-align A user with this username already exists
             div.input-field.col.s6
               input(id="first_name", type="text", class="validate", ng-model="newUser.firstname")
               label(for="first_name") First Name
@@ -23,9 +23,6 @@ div.row
             div.input-field.col.s12
               input(id="password", type="password", class="validate", ng-model="newUser.password")
               label(for="password") Password
-            div.input-field.col.s12
-              input(id="confirmPassword", type="password", class="validate", ng-model="newUser.passwordSecond")
-              label(for="confirmPassword") Confirm Password
               br
             div.center-align
               button(class="btn-large waves-effect center-align", ng-click="signUpUser(newUser)") Submit
@@ -33,4 +30,4 @@ div.row
 
           div(ng-if="verificationMailSent", class="center-align")
             h5 A verification email has been sent to {{newUser.email}}.
-              p Check your email and follow the link to finish creating your SchedMedic account.  
+            p Check your email and follow the link to finish creating your SchedMedic account.  

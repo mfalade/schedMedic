@@ -1,6 +1,6 @@
 div.row
-  div(class="customErrorAlert", ng-if="wrongUserInfo")
-    p(ng-bind="errMsg")
+  div(class="customErrorAlert", ng-if="!formIsValid")
+    p(ng-bind="formErrorMessage")
   div(class="customSuccessAlert", ng-if="loginSuccessful")
     p Login successful.
   div.container.paddingTopMd

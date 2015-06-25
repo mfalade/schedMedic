@@ -82,7 +82,8 @@ var AuthController = {};
             if(err)
               return res.json({ error: { message: "An unidentified error occured.", code: 9000 } });
             else
-              return res.json({ message: 'Validation Successful', code: 2000 });;
+              return res.redirect("/");
+              // return res.json({ message: 'Validation Successful', code: 2000 });
           });
         }
         else{
