@@ -5,7 +5,7 @@ var UserSchema = new Schema({
   firstname:      { type: String, required: true },
   lastname:       { type: String, required: true },
   username:       { type: String, required: true, index: { unique: true } },
-  email:          { type: String, required: true, index: { unique: true } },
+  email:          { type: String, required: true, index: { unique: false } },
   password:       { type: String, required: true, select: false },
   verified:       { type: Boolean, default: false },
   uniqueId:       { type: String },

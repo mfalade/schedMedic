@@ -42,6 +42,10 @@ angular.module('formValidationModule', [])
 
         //Return the final result of the form assessment.
         return { validForm: timeFrameIsValid, remark: notificationMessage };
+      },
+
+      validateAuthForm: function(info) {
+        return false;
       }
     };
   }])
