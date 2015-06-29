@@ -1,7 +1,9 @@
 body {
-  background: url('../images/bg.jpg') no-repeat;
+  background: #131218 url('../images/bg.jpg') no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  height: 700px;
 }
 
 h1, h2, h3, h4, h5, h6, nav ul a {
@@ -20,9 +22,9 @@ h1, h2, h3, h4, h5, h6, p {
   text-align: center;
 }
 
-html {
+/*html {
   background: #000;
-}
+}*/
 
 .userPage, #docView {
   padding:0;

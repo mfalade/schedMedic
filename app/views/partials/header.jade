@@ -1,8 +1,17 @@
 div
   nav
-    div.nav-wrapper
-      a(href="#", class="brand-logo") SchedMedic
-      ul(class="right hide-on-med-and-down")
+    div(class="nav-wrapper sideMArgin", ng-controller="mainCtrl as headerCtrl")
+      a(href="#/", class="brand-logo") SchedMedic
+      ul(class="right hide-on-med-and-down", ng-if="!userIsLoggedIn")
+        li
+          a(ui-sref="login") Login
+
+      ul(class="right hide-on-med-and-down", ng-if="userIsLoggedIn")
         li 
-          a Sign up
-          a Sign in
+          a(href="") Welcome {{currentUser.username}}
+        li 
+          a(ui-sref="home") Home
+        li 
+          a(ui-sref="patient") Schedule Appointment
+        li
+          a(href="", ng-click="logout()") Logout
