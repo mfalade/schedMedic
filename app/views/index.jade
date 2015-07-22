@@ -12,12 +12,15 @@ html(lang="en", ng-app="App")
         div(class="nav-wrapper sideMArgin", ng-controller="mainCtrl as headerCtrl")
           a(href="#/", class="brand-logo") SchedMedic
           ul(class="right hide-on-med-and-down", ng-if="!userIsLoggedIn")
-            li
+            li(ng-if="!loginIsDisplayed" ng-click="showLogin()")
               a(ui-sref="login") Login
+            li(ng-if="loginIsDisplayed" ng-click="showSignUp()")
+              a(ui-sref="signup") Register
 
           ul(class="right hide-on-med-and-down", ng-if="userIsLoggedIn")
-            li 
-              a(href="") Welcome {{currentUser.username}}
+            li.usernameLabel
+              | Welcome 
+              span(ng-bind="currentUser.username") 
             li 
               a(ui-sref="home") Home
             li 
@@ -25,7 +28,7 @@ html(lang="en", ng-app="App")
             li
               a(href="", ng-click="logout()") Logout
 
-    div(ui-view)
+    div(ui-view, class="fullHeight")
 
     script(src="../../lib/jquery/dist/jquery.js")
     script(src="../../lib/angular/angular.js")

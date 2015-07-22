@@ -1,7 +1,7 @@
 div.rowdiv(class="customErrorAlert", ng-if="!formIsValid")
   p(ng-bind="formErrorMessage")
 div.row
-  div.container
+  div.container.paddingTopMd
       form.col.s12
         br
         div.card-panel.authform
@@ -30,4 +30,4 @@ div.row
 
           div(ng-if="verificationMailSent", class="center-align")
             h5 A verification email has been sent to {{newUser.email}}.
-            p Check your email and follow the link to finish creating your SchedMedic account.  
+            p.center-align Check your email and follow the link to finish creating your SchedMedic account.  

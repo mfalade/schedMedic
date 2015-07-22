@@ -1,4 +1,14 @@
 body {
+  background: #131218;
+}
+
+.userPage, #docView, .welcomePage  {
+  padding:0;
+  margin: 0;
+  min-height:100vh;
+}
+
+.welcomePage {
   background: #131218 url('../images/bg.jpg') no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -6,8 +16,19 @@ body {
   background-size: cover;
 }
 
+
+.fullHeight {
+  min-height: 100%;
+  height: auto;
+}
+
 h1, h2, h3, h4, h5, h6, nav ul a {
   font-weight: 100;
+}
+
+.noSpacing {
+  margin: 0;
+  padding: 0;
 }
 
 nav .brand-logo {
@@ -25,14 +46,6 @@ h1, h2, h3, h4, h5, h6, p {
 /*html {
   background: #000;
 }*/
-
-.userPage, #docView {
-  padding:0;
-  margin: 0;
-  position: relative;
-  top: 0;
-  min-height : 637px;;
-}
 
 .userPage {
   background: url('../images/bg4.jpg') no-repeat;
@@ -103,6 +116,7 @@ nav {
 .introText {
   color: #fff;
   font-weight: 100;
+  padding-top: 200px;
 }
 
 .introText p {
@@ -423,3 +437,13 @@ textarea.materialize-textarea:focus.valid {
   margin-bottom: 0;
   margin-top: 50px;
 }
+
+.usernameLabel {
+  text-transform: capitalize;
+  margin-right: 10px;
+}
+
+.usernameLabel:hover, .usernameLabel:active, .usernameLabel:focus {
+    background: #272532!important;
+}
+

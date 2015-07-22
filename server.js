@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
 require('./app/routes')(app, express);
 app.listen(port, function(err) {
   if (err) {
-    console.log('Could not start app: Error Occured', err)
+    console.log( 'An error occurred.. App coulld not be started', err)
   } else {
     console.log(port + ' is where the magic happens.');
   }

@@ -25,6 +25,10 @@ angular.module('authServiceModule', [])
           .error(function(err) {
             cb(err);
           })
+      },
+
+      authview: {
+        current: 'login'
       }
     };
   }]);

@@ -14,6 +14,14 @@ angular.module('authModule', ['authServiceModule', 'authtokenModule', 'formValid
     $scope.formIsValid = true;
     $scope.formErrorMessage = null;
 
+    var path = $location.path();
+    if(path == "/login"){
+      $rootScope.loginIsDisplayed = true;
+    }
+    else if(path == "/signup") {
+      $rootScope.loginIsDisplayed = false;
+    }
+
     $scope.signUpUser = function (newUser) {
       var validationResult = formValidator.validateAuthForm(newUser, 'signup');
       if(validationResult.validForm) {
