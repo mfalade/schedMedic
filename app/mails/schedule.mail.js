@@ -14,7 +14,7 @@ var ScheduleTemplate = function(info) {
                       '<ul>' + 
                         '<li>' + 'Preferred Date: ' + info.SelectedDay + '.</li>' +
                         '<li>' + 'Preferred time frame: ' + info.startTime + ' - ' + info.endTime +  '.</li>' +
-                        '<li>' + 'Reason for visit: ' + info.message +  '</li>' +
+                        '<li>' + 'Purpose of visit: ' + info.message +  '</li>' +
                       '<ul>'+
 
                       '<div>' + '<br>' + 
