@@ -20,6 +20,9 @@ html {
   background-size: cover;
 }
 
+.emptyPlaceholder {
+  margin-top: 50px;
+}
 
 .fullHeight {
   min-height: 100%;
