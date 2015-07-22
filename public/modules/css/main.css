@@ -2,6 +2,10 @@ body {
   background: #131218;
 }
 
+html {
+  height: 100%;
+}
+
 .userPage, #docView, .welcomePage  {
   padding:0;
   margin: 0;
@@ -372,7 +376,7 @@ textarea.materialize-textarea:focus.valid {
 }
 
 #leftCol, #rightCol {
-  height: 620px;
+  height: 100vh;
 }
 
 #rightCol {
@@ -445,5 +449,4 @@ textarea.materialize-textarea:focus.valid {
 
 .usernameLabel:hover, .usernameLabel:active, .usernameLabel:focus {
     background: #272532!important;
-}
-
+}  

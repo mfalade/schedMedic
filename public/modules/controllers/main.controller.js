@@ -10,6 +10,10 @@ angular.module('mainModule', ['authtokenModule'])
     $scope.showSignup = function() {
       $location.path('/signup');
     }
+
+    $scope.scheduleAppointment = function() {
+      $location.path('/patient/schedule');
+    }
     
     $scope.getUser = function() {
       Auth.getUser(function(doc) {
@@ -21,9 +25,9 @@ angular.module('mainModule', ['authtokenModule'])
 
     $scope.logout = function() {
       Auth.logout();
-      $scope.userIsLoggedIn = false;
       $timeout(function() {
         $location.path('/');
+        $scope.userIsLoggedIn = false;
       }, 500);
     };
 

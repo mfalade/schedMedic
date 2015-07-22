@@ -4,5 +4,6 @@ div.welcomePage
       h3.noSpacing Welcome to SchedMedic
     div
       p Easily schedule and manage your medical appointments here.
-      button(class="btn-large waves-effect marginTopMd center-align", ng-click="showSignup()") Get Started
+      button(class="btn-large waves-effect marginTopMd center-align", ng-click="showSignup()", ng-if="!userIsLoggedIn") Get Started
+      button(class="btn-large waves-effect marginTopMd center-align", ng-click="scheduleAppointment()", ng-if="userIsLoggedIn") Schedule Appointment
 
