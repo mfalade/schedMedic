@@ -24,10 +24,10 @@ angular.module('mainModule', ['authtokenModule'])
     $scope.userIsLoggedIn = Auth.isLoggedIn();
 
     $scope.logout = function() {
+      $scope.userIsLoggedIn = false;
       Auth.logout();
       $timeout(function() {
         $location.path('/');
-        $scope.userIsLoggedIn = false;
       }, 500);
     };
 

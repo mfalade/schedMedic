@@ -250,7 +250,7 @@ textarea.materialize-textarea:focus.valid {
 }
 
 .collection .collection-item {
-  background: #F2F8F8;
+  background: #EBEBEB;
 }
 
 .collection.with-header .confirmed {
@@ -413,12 +413,16 @@ textarea.materialize-textarea:focus.valid {
 
 .doc_confirmed {
   background: #80CA84;
-} 
-
+}
 
 .pendingDocCard, .cancelledDocCard, .confirmedDocCard {
   transition: all linear .5s;
+  margin: 0.5rem 0;
  }
+
+.activeCat {
+  background: #DFDEDE;
+}
 
 .confirmedDocCard:hover {
   background: #80CA84;

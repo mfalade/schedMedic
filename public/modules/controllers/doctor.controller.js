@@ -8,7 +8,6 @@ angular.module('doctorModule', ['scheduleServiceModule'])
     $scope.getDoctorSchedules = function (doc_id) {
       scheduleService.getDoctorSchedules($scope.currentDoctorId, function(doc) {
         $scope.currentDoctorSchedules = doc;
-        console.log('This is the current doctor schedules', doc);
       });
     }();
 

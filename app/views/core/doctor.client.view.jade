@@ -22,15 +22,15 @@ div#docView
         h4.center-align Manage your appointments
         br
         div.row
-          div.col.s4
+          div(class="col s4", ng-class="{activeCat: activeCategory=='confirmed'}")
             div(class="card confirmedDocCard center-align", ng-click="showCategory('confirmed')")
               i.medium.mdi-action-done
               h5 Confirmed appointments
-          div.col.s4
+          div(class="col s4", ng-class="{activeCat: activeCategory=='cancelled'}")
             div(class="card cancelledDocCard center-align", ng-click="showCategory('cancelled')")
               i.medium.mdi-navigation-cancel
               h5 Cancelled appointments
-          div.col.s4
+          div(class="col s4", ng-class="{activeCat: activeCategory=='pending'}")
             div(class="card pendingDocCard center-align", ng-click="showCategory('pending')")
               i.medium.mdi-navigation-unfold-less
               h5 Pending appointments
