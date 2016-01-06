@@ -11,4 +11,4 @@ gulp.task('jade', function() {
       locals: YOUR_LOCALS
     }))
     .pipe(gulp.dest('./public/modules/views/'))
-});
+}); 

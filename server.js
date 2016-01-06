@@ -12,8 +12,7 @@ var port           = process.env.PORT || 5555;
 
 if( env === 'development') {
   mongoose.connect(db.developmentUrl);
-}
-else {
+} else {
   mongoose.connect(db.productionUrl);
 }
 
@@ -38,4 +37,3 @@ app.listen(port, function(err) {
 });
 
 exports = module.exports = app;
-

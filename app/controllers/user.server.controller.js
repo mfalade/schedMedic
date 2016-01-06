@@ -8,6 +8,7 @@ module.exports = {
       res.json(doc);
     });
   },
+  
   getUser: function (req, res) {
     var user_id = req.params.id;
 
